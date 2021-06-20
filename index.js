@@ -14,13 +14,25 @@ const contactSection = document.querySelector('.nav-contact-section')
 
 startButton.addEventListener('click',function(){
     startSection.classList.replace('invisible','visible')
+    aboutSection.classList.replace('visible','invisible')
+    projectSection.classList.replace('visible','invisible')
+    contactSection.classList.replace('visible','invisible')
 })
 aboutButton.addEventListener('click',function(){
     aboutSection.classList.replace('invisible','visible')
+    startSection.classList.replace('visible','invisible')
+    projectSection.classList.replace('visible','invisible')
+    contactSection.classList.replace('visible','invisible')
 })
 projectButton.addEventListener('click',function(){
     projectSection.classList.replace('invisible','visible')
+    startSection.classList.replace('visible','invisible')
+    aboutSection.classList.replace('visible','invisible')
+    contactSection.classList.replace('visible','invisible')
 })
 contactButton.addEventListener('click',function(){
     contactSection.classList.replace('invisible','visible')
+    startSection.classList.replace('visible','invisible')
+    aboutSection.classList.replace('visible','invisible')
+    projectSection.classList.replace('visible','invisible')
 })
