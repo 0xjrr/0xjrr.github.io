@@ -32,6 +32,7 @@ body::-webkit-scrollbar-thumb{
     height: 100vh;
     position: fixed;
     background-color: rgba(11, 5, 26, 0.65);
+    transition: width 200ms ease;
 }
 .navbar-nav{
     list-style: none;
@@ -47,8 +48,18 @@ body::-webkit-scrollbar-thumb{
     width: 15rem;
 }
 
-.navbar:hover svg{
+/* .navbar:hover svg{
     height: 2rem;
+    width: 2rem;
+} */
+
+.navbar svg{
+    height: 2rem;
+    width: 2rem;
+}
+
+.nav-link:hover{
+    background-color: var(--bg-secondary);
 }
 
 .navbar:hover .link-text{
