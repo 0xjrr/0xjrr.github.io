@@ -29,8 +29,6 @@ body::-webkit-scrollbar-thumb{
 
 .navbar{
     white-space: nowrap;
-    width: 3.7rem;
-    height: 100vh;
     position: fixed;
     background-color: rgba(11, 5, 26, 0.65);
     transition: width 200ms ease;
@@ -45,9 +43,7 @@ body::-webkit-scrollbar-thumb{
     height: 100%;
 }
 
-.navbar:hover{
-    width: 15rem;
-}
+
 
 /* .navbar:hover svg{
     height: 2rem;
@@ -62,10 +58,6 @@ body::-webkit-scrollbar-thumb{
 .nav-link:hover{
     background-color: var(--bg-secondary);
     opacity: 0.9;
-}
-
-.navbar:hover .link-text{
-    display: block;
 }
 
 /* .navbar:hover .fa-logo-large{
@@ -161,4 +153,43 @@ main{
 
 .fa-comet .fa-primary{
     color: rgb(5, 5, 5);
+}
+
+/* Small screen target */
+@media only screen and (max-width:600px) {
+    .navbar{
+        bottom: 0;
+        height: 3.7rem;
+        width: 100vw;
+
+    }
+    .logo-nav{
+        display: none;
+    }
+    .navbar-nav{
+        flex-direction: row;
+    }
+    .nav-link{
+        justify-content: center;
+    }
+    main{
+        margin: 0;
+    }
+    
+}
+
+/* Large screen target */
+@media only screen and (min-width:600px) {
+    .navbar{
+        top: 0;
+        width: 3.7rem;
+        height: 100vh;
+
+    }
+    .navbar:hover{
+        width: 15rem;
+    }
+    .navbar:hover .link-text{
+        display: block;
+    }
 }
