@@ -17,9 +17,9 @@ export function MainPage() {
         </Avatar>
         <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
         <div className="text-lg text-gray-500 dark:text-gray-400 flex flex-wrap justify-center ">
-          <span className="px-2 text-2xl ">Data Scientist </span>{" "}
+          <span className="px-2 text-2xl ">Data Science </span>{" "}
           <IconAirplaneSharp className="h-7 w-7" />{" "}
-          <span className="px-2 text-2xl ">Full Stack Developer</span>
+          <span className="px-2 text-2xl ">Software Engineering</span>
         </div>
       </header>
       <nav className="flex flex-col sm:flex-row sm:justify-center space-y-2 sm:space-y-0 sm:space-x-4">
