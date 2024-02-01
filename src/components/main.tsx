@@ -6,10 +6,14 @@ import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import Link from "next/link";
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
 import { JSX, SVGProps } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export function MainPage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="fixed top-0 right-0 m-4 h-7 w-7">
+        <ThemeToggle />
+      </div>
       <header className="flex flex-col items-center justify-center space-y-6 py-12">
         <Avatar className="h-32 w-32">
           <AvatarImage className="filter grayscale" alt="Profile picture" src="https://media.licdn.com/dms/image/D5603AQHnlhMY3qqTRw/profile-displayphoto-shrink_200_200/0/1684162556234?e=1712188800&v=beta&t=Yss1a58_lLlHLwVRYob5ZeGlJgJlAm4I9Asc-bTDxUI" />
