@@ -16,7 +16,11 @@ export function MainPage() {
       </div>
       <header className="flex flex-col items-center justify-center space-y-6 py-12">
         <Avatar className="h-32 w-32">
-          <AvatarImage className="filter grayscale" alt="Profile picture" src="https://media.licdn.com/dms/image/D5603AQHnlhMY3qqTRw/profile-displayphoto-shrink_200_200/0/1684162556234?e=1712188800&v=beta&t=Yss1a58_lLlHLwVRYob5ZeGlJgJlAm4I9Asc-bTDxUI" />
+          <AvatarImage
+            className="filter grayscale"
+            alt="Profile picture"
+            src="https://media.licdn.com/dms/image/D5603AQHnlhMY3qqTRw/profile-displayphoto-shrink_200_200/0/1684162556234?e=1712188800&v=beta&t=Yss1a58_lLlHLwVRYob5ZeGlJgJlAm4I9Asc-bTDxUI"
+          />
           <AvatarFallback>RR</AvatarFallback>
         </Avatar>
         <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
@@ -42,22 +46,28 @@ export function MainPage() {
         <h2 className="text-2xl font-bold">Tech Stack</h2>
         <div className="flex flex-wrap justify-center gap-4">
           <div className="flex items-center gap-4">
-            <IconLogoDocker className="h-10 w-10" />
-            <IconKubernetes className="h-10 w-10" />
+            <IconGolang className="h-5 w-5" />
+            <IconTypescript className="h-5 w-5" />
+            <IconPython className="h-5 w-5" />
+            <IconJava className="h-5 w-5" />
           </div>
           <span className="px-2 text-3xl ">|</span>
           <div className="flex items-center gap-4">
-            <IconTailwind className="h-10 w-10" />
-            <IconReact className="h-10 w-10" />
-            <IconDjango className="h-10 w-10" />
-          </div>
-          <span className="px-2 text-3xl ">|</span>
-          <div className="flex items-center gap-4">
-            <IconGolang className="h-10 w-10" />
-            <IconTypescript className="h-10 w-10" />
-            <IconJava className="h-10 w-10" />
+            <IconReact className="h-5 w-5" />
+            <IconTailwind className="h-5 w-5" />
 
-            <IconPython className="h-10 w-10" />
+            <IconDjango className="h-5 w-5" />
+          </div>
+          <span className="px-2 text-3xl ">|</span>
+          <div className="flex items-center gap-4">
+            <IconLogoDocker className="h-5 w-5" />
+            <IconKubernetes className="h-5 w-5" />
+          </div>
+
+          <span className="px-2 text-3xl ">|</span>
+          <div className="flex items-center gap-4">
+            <IconGooglecloud className="h-5 w-5" />
+            <IconMicrosoftazure className="h-5 w-5" />
           </div>
         </div>
       </section>
@@ -241,6 +251,34 @@ function IconTypescript(props: React.SVGProps<SVGSVGElement>) {
       {...props}
     >
       <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 011.306.34v2.458a3.95 3.95 0 00-.643-.361 5.093 5.093 0 00-.717-.26 5.453 5.453 0 00-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 00-.623.242c-.17.104-.3.229-.393.374a.888.888 0 00-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 01-1.012 1.085 4.38 4.38 0 01-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 01-1.84-.164 5.544 5.544 0 01-1.512-.493v-2.63a5.033 5.033 0 003.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 00-.074-1.089 2.12 2.12 0 00-.537-.5 5.597 5.597 0 00-.807-.444 27.72 27.72 0 00-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 011.47-.629 7.536 7.536 0 011.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z" />
+    </svg>
+  );
+}
+
+function IconMicrosoftazure(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M22.379 23.343a1.62 1.62 0 001.536-2.14v.002L17.35 1.76A1.62 1.62 0 0015.816.657H8.184A1.62 1.62 0 006.65 1.76L.086 21.204a1.62 1.62 0 001.536 2.139h4.741a1.62 1.62 0 001.535-1.103l.977-2.892 4.947 3.675c.28.208.618.32.966.32m-3.084-12.531l3.624 10.739a.54.54 0 01-.51.713v-.001h-.03a.54.54 0 01-.322-.106l-9.287-6.9h4.853m6.313 7.006c.116-.326.13-.694.007-1.058L9.79 1.76a1.722 1.722 0 00-.007-.02h6.034a.54.54 0 01.512.366l6.562 19.445a.54.54 0 01-.338.684" />
+    </svg>
+  );
+}
+
+function IconGooglecloud(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M12.19 2.38a9.344 9.344 0 00-9.234 6.893c.053-.02-.055.013 0 0-3.875 2.551-3.922 8.11-.247 10.941l.006-.007-.007.03a6.717 6.717 0 004.077 1.356h5.173l.03.03h5.192c6.687.053 9.376-8.605 3.835-12.35a9.365 9.365 0 00-2.821-4.552l-.043.043.006-.05A9.344 9.344 0 0012.19 2.38zm-.358 4.146c1.244-.04 2.518.368 3.486 1.15a5.186 5.186 0 011.862 4.078v.518c3.53-.07 3.53 5.262 0 5.193h-5.193l-.008.009v-.04H6.785a2.59 2.59 0 01-1.067-.23h.001a2.597 2.597 0 113.437-3.437l3.013-3.012A6.747 6.747 0 008.11 8.24c.018-.01.04-.026.054-.023a5.186 5.186 0 013.67-1.69z" />
     </svg>
   );
 }
