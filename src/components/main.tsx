@@ -43,34 +43,33 @@ export function MainPage() {
       </nav>
 
       <section className="flex flex-col items-center justify-center space-y-6 py-12">
-        <h2 className="text-2xl font-bold">Tech Stack</h2>
-        <div className="flex flex-wrap justify-center gap-4">
-          <div className="flex items-center gap-4">
-            <IconGolang className="h-5 w-5" />
-            <IconTypescript className="h-5 w-5" />
-            <IconPython className="h-5 w-5" />
-            <IconJava className="h-5 w-5" />
-          </div>
-          <span className="px-2 text-3xl ">|</span>
-          <div className="flex items-center gap-4">
-            <IconReact className="h-5 w-5" />
-            <IconTailwind className="h-5 w-5" />
+  <h2 className="text-2xl font-bold">Tech Stack</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 justify-items-center">
+    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+      <IconGolang className="h-8 w-8 px-1" />
+      <IconTypescript className="h-8 w-8 px-1" />
+      <IconPython className="h-8 w-8 px-1" />
+      <IconJava className="h-8 w-8 px-1" />
+    </div>
+    
+    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+      <IconReact className="h-8 w-8 px-1" />
+      <IconTailwind className="h-8 w-8 px-1" />
+      <IconDjango className="h-8 w-8 px-1" />
+    </div>
+    
+    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+      <IconLogoDocker className="h-8 w-8 px-1" />
+      <IconKubernetes className="h-8 w-8 px-1" />
+    </div>
 
-            <IconDjango className="h-5 w-5" />
-          </div>
-          <span className="px-2 text-3xl ">|</span>
-          <div className="flex items-center gap-4">
-            <IconLogoDocker className="h-5 w-5" />
-            <IconKubernetes className="h-5 w-5" />
-          </div>
-
-          <span className="px-2 text-3xl ">|</span>
-          <div className="flex items-center gap-4">
-            <IconGooglecloud className="h-5 w-5" />
-            <IconMicrosoftazure className="h-5 w-5" />
-          </div>
-        </div>
-      </section>
+    
+    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+      <IconGooglecloud className="h-8 w-8 px-1" />
+      <IconMicrosoftazure className="h-8 w-8 px-1" />
+    </div>
+  </div>
+</section>
       <section className="flex flex-col items-center justify-center space-y-6 py-12">
         <h2 className="text-3xl font-bold">Projects</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
