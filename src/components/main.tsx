@@ -28,60 +28,100 @@ export function MainPage() {
         </div>
       </header>
       <nav className="flex flex-col sm:flex-row sm:justify-center space-y-2 sm:space-y-0 sm:space-x-4">
-        <Link className="text-lg font-medium hover:underline" href="#">
+        <Link className="text-lg font-medium hover:underline" href="#about">
           About
         </Link>
-        <Link className="text-lg font-medium hover:underline" href="#">
+        <Link className="text-lg font-medium hover:underline" href="#projects">
           Projects
         </Link>
         <Link className="text-lg font-medium hover:underline" href="#">
           Contact
         </Link>
       </nav>
-
+      <section id="about" className="flex flex-col items-center justify-center space-y-6 py-12">
+        <h2 className="text-3xl font-bold">About</h2>
+        <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
+          Welcome to my corner on the web! I'm Ricardo, currently in Lisbon,
+          Portugal. At the moment I'm working as a Data Scientist, while also
+          pursuing advanced studies in Computer Science. My passion lies in
+          learning, developing software, solving complex data problems, and
+          building cool projects. My expertise spans machine learning, software
+          development, and data engineering, with proficiency in Python,
+          JavaScript, Java, and Golang. I'm constantly on the lookout for new
+          technologies and languages to master.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
+          I am currently enhancing my technical skillset with a Master's degree
+          in Computer Science at Faculdade de Ciências da Universidade de Lisboa,
+          focusing on both the theoretical and practical aspects of software
+          engineering. This, coupled with my background in environmental
+          engineering and data science, provides me with a unique perspective on
+          how technology can be used to address complex challenges.
+        </p>
+        <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
+          As I navigate this exciting transition towards software engineering, I
+          am eager to apply my skills in new contexts, tackle challenges
+          head-on, and contribute to meaningful projects that push technological
+          boundaries. I invite you to connect with me on{" "}
+          <a
+            href="https://www.linkedin.com/in/jr-ribeiro/"
+            className="text-blue-500 hover:underline"
+          >
+            Linkedin
+          </a>{" "}
+          and explore my coding endeavors on{" "}
+          <a
+            href="https://github.com/0xjrr/"
+            className="text-blue-500 hover:underline"
+          >
+            GitHub
+          </a>
+          .
+        </p>
+      </section>
       <section className="flex flex-col items-center justify-center space-y-6 py-12">
-  <h2 className="text-2xl font-bold">Tech Stack</h2>
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 justify-items-center">
-    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+        <h2 className="text-2xl font-bold">Tech Stack</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 justify-items-center">
+          <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
             <Tooltip showArrow={true} color={"default"} content="Go">
-      <IconGolang className="h-8 w-8 px-1" />
+              <IconGolang className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="TypeScript">
-      <IconTypescript className="h-8 w-8 px-1" />
+              <IconTypescript className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Python">
-      <IconPython className="h-8 w-8 px-1" />
+              <IconPython className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Java">
-      <IconJava className="h-8 w-8 px-1" />
+              <IconJava className="h-8 w-8 px-1" />
             </Tooltip>
-    </div>
-    
-    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+          </div>
+
+          <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
             <Tooltip showArrow={true} color={"default"} content="React">
-      <IconReact className="h-8 w-8 px-1" />
+              <IconReact className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Next.js">
               <IconNextjs className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Tailwind CSS">
-      <IconTailwind className="h-8 w-8 px-1" />
+              <IconTailwind className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Django">
-      <IconDjango className="h-8 w-8 px-1" />
+              <IconDjango className="h-8 w-8 px-1" />
             </Tooltip>
-    </div>
-    
-    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+          </div>
+
+          <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
             <Tooltip showArrow={true} color={"default"} content="Docker">
-      <IconLogoDocker className="h-8 w-8 px-1" />
+              <IconLogoDocker className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Kubernetes">
-      <IconKubernetes className="h-8 w-8 px-1" />
+              <IconKubernetes className="h-8 w-8 px-1" />
             </Tooltip>
-    </div>
-    
-    <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
+          </div>
+
+          <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
             <Tooltip
               showArrow={true}
               color={"default"}
@@ -90,7 +130,7 @@ export function MainPage() {
               <IconMicrosoftazure className="h-8 w-8 px-1" />
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Google Cloud">
-      <IconGooglecloud className="h-8 w-8 px-1" />
+              <IconGooglecloud className="h-8 w-8 px-1" />
             </Tooltip>
           </div>
           <div className="flex items-center justify-center gap-1 px-2 py-4 flex-grow">
@@ -103,9 +143,9 @@ export function MainPage() {
             <Tooltip showArrow={true} color={"default"} content="Scikit-learn">
               <IconScikitlearn className="h-8 w-8 px-1" />
             </Tooltip>
-    </div>
-  </div>
-</section>
+          </div>
+        </div>
+      </section>
 
       <section id="projects" className="flex flex-col items-center justify-center space-y-6 py-12">
         <h2 className="text-3xl font-bold">Projects</h2>
