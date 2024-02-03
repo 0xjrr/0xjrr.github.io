@@ -1,9 +1,11 @@
-import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
-import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
 import ThemeToggle from "./ThemeToggle";
-import { Tooltip } from "@nextui-org/react";
 import DomainIconsBox from "./DomainIconsBox";
+import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
+import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
+import { Tooltip } from "@nextui-org/react";
 import {
   IconAirplaneSharp,
   IconBrandKotlin,
@@ -23,185 +25,215 @@ import {
   IconTensorflow,
   IconTypescript,
 } from "./icons/Icons";
+import ProjectModal from "./ui/modal";
+
+interface Project {
+  title: string;
+  description: string;
+}
+
+const MockProjects: Project[] = [
+  {
+    title: "Project 1",
+    description: "Description of Project 1",
+  },
+  {
+    title: "Project 2",
+    description: "Description of Project 2",
+  },
+  {
+    title: "Project 3",
+    description: "Description of Project 3",
+  },
+  { title: "Project 4", description: "Description of Project 4" },
+];
 
 export function MainPage() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <div className="fixed top-0 right-0 m-4 h-7 w-7">
-        <ThemeToggle />
-      </div>
-      <header className="flex flex-col items-center justify-center space-y-6 py-12">
-        <Avatar className="h-32 w-32">
-          <AvatarImage
-            className="filter grayscale"
-            alt="Profile picture"
-            src="https://media.licdn.com/dms/image/D5603AQHnlhMY3qqTRw/profile-displayphoto-shrink_200_200/0/1684162556234?e=1712188800&v=beta&t=Yss1a58_lLlHLwVRYob5ZeGlJgJlAm4I9Asc-bTDxUI"
-          />
-          <AvatarFallback>RR</AvatarFallback>
-        </Avatar>
-        <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
-        <div className="text-lg text-gray-500 dark:text-gray-400 flex flex-wrap justify-center ">
-          <span className="px-2 text-2xl ">Data Science </span>{" "}
-          <IconAirplaneSharp className="h-7 w-7" />{" "}
-          <span className="px-2 text-2xl ">Software Engineering</span>
+    <>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div className="fixed top-0 right-0 m-4 h-7 w-7">
+          <ThemeToggle />
         </div>
-      </header>
-      <nav className="flex flex-col sm:flex-row sm:justify-center space-y-2 sm:space-y-0 sm:space-x-4">
-        <Link className="text-lg font-medium hover:underline" href="#about">
-          About
-        </Link>
-        <Link className="text-lg font-medium hover:underline" href="#projects">
-          Projects
-        </Link>
-        <Link className="text-lg font-medium hover:underline" href="#">
-          Contact
-        </Link>
-      </nav>
-      <section
-        id="about"
-        className="flex flex-col items-center justify-center space-y-6 py-12"
-      >
-        <h2 className="text-3xl font-bold">About</h2>
-        <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-          Welcome to my corner on the web! I&apos;m Ricardo, currently in
-          Lisbon, Portugal. At the moment I&apos;m working as a Data Scientist,
-          while also pursuing advanced studies in Computer Science. My passion
-          lies in learning, developing software, solving complex data problems,
-          and building cool projects. My expertise spans machine learning,
-          software development, and data engineering, with proficiency in
-          Python, JavaScript, Java, and Golang. I&apos;m constantly on the
-          lookout for new technologies and languages to master.
-        </p>
-        <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-          I am currently enhancing my technical skillset with a Master&apos;s
-          degree in Computer Science at Faculdade de Ciências da Universidade de
-          Lisboa, focusing on both the theoretical and practical aspects of
-          software engineering. This, coupled with my background in
-          environmental engineering and data science, provides me with a unique
-          perspective on how technology can be used to address complex
-          challenges.
-        </p>
-        <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-          As I navigate this exciting transition towards software engineering, I
-          am eager to apply my skills in new contexts, tackle challenges
-          head-on, and contribute to meaningful projects that push technological
-          boundaries. I invite you to connect with me on{" "}
-          <a
-            href="https://www.linkedin.com/in/jr-ribeiro/"
-            className="text-blue-500 hover:underline"
+        <header className="flex flex-col items-center justify-center space-y-6 py-12">
+          <Avatar className="h-32 w-32">
+            <AvatarImage
+              className="filter grayscale"
+              alt="Profile picture"
+              src="https://media.licdn.com/dms/image/D5603AQHnlhMY3qqTRw/profile-displayphoto-shrink_200_200/0/1684162556234?e=1712188800&v=beta&t=Yss1a58_lLlHLwVRYob5ZeGlJgJlAm4I9Asc-bTDxUI"
+            />
+            <AvatarFallback>RR</AvatarFallback>
+          </Avatar>
+          <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
+          <div className="text-lg text-gray-500 dark:text-gray-400 flex flex-wrap justify-center ">
+            <span className="px-2 text-2xl ">Data Science </span>{" "}
+            <IconAirplaneSharp className="h-7 w-7" />{" "}
+            <span className="px-2 text-2xl ">Software Engineering</span>
+          </div>
+        </header>
+        <nav className="flex flex-col sm:flex-row sm:justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+          <Link className="text-lg font-medium hover:underline" href="#about">
+            About
+          </Link>
+          <Link
+            className="text-lg font-medium hover:underline"
+            href="#projects"
           >
-            Linkedin
-          </a>{" "}
-          and explore my coding endeavors on{" "}
-          <a
-            href="https://github.com/0xjrr/"
-            className="text-blue-500 hover:underline"
-          >
-            GitHub
-          </a>
-          .
-        </p>
-      </section>
-      <section className="flex flex-col items-center justify-center space-y-6 py-12">
-        <h2 className="text-2xl font-bold">Tech Stack</h2>
-        <DomainIconsBox name="Languages">
-          <Tooltip showArrow={true} color={"default"} content="Kotlin">
-            <IconBrandKotlin />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Go">
-            <IconGolang />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="TypeScript & JS">
-            <IconTypescript />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Python">
-            <IconPython />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Java">
-            <IconJava />
-          </Tooltip>
-        </DomainIconsBox>
-        <DomainIconsBox name="Frameworks">
-          <Tooltip
-            showArrow={true}
-            color={"default"}
-            content="ReactJS & React Native"
-          >
-            <IconReact />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Next.js">
-            <IconNextjs />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Tailwind CSS">
-            <IconTailwind />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Django">
-            <IconDjango />
-          </Tooltip>
-        </DomainIconsBox>
-        <DomainIconsBox name="Cloud Providers">
-          <Tooltip showArrow={true} color={"default"} content="Microsoft Azure">
-            <IconMicrosoftazure />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Google Cloud">
-            <IconGooglecloud />
-          </Tooltip>
-        </DomainIconsBox>
-        <DomainIconsBox name="Containers">
-          <IconLogoDocker />
-          <IconKubernetes />
-        </DomainIconsBox>
-        <DomainIconsBox name="Machine Learning">
-          <Tooltip showArrow={true} color={"default"} content="TensorFlow">
-            <IconTensorflow />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="PyTorch">
-            <IconPytorch />
-          </Tooltip>
-          <Tooltip showArrow={true} color={"default"} content="Scikit-learn">
-            <IconScikitlearn />
-          </Tooltip>
-        </DomainIconsBox>
-      </section>
+            Projects
+          </Link>
+          <Link className="text-lg font-medium hover:underline" href="#">
+            Contact
+          </Link>
+        </nav>
+        <section
+          id="about"
+          className="flex flex-col items-center justify-center space-y-6 py-12"
+        >
+          <h2 className="text-3xl font-bold">About</h2>
+          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
+            Welcome to my corner on the web! I&apos;m Ricardo, currently in
+            Lisbon, Portugal. At the moment I&apos;m working as a Data
+            Scientist, while also pursuing advanced studies in Computer Science.
+            My passion lies in learning, developing software, solving complex
+            data problems, and building cool projects. My expertise spans
+            machine learning, software development, and data engineering, with
+            proficiency in Python, JavaScript, Java, and Golang. I&apos;m
+            constantly on the lookout for new technologies and languages to
+            master.
+          </p>
+          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
+            I am currently enhancing my technical skillset with a Master&apos;s
+            degree in Computer Science at Faculdade de Ciências da Universidade
+            de Lisboa, focusing on both the theoretical and practical aspects of
+            software engineering. This, coupled with my background in
+            environmental engineering and data science, provides me with a
+            unique perspective on how technology can be used to address complex
+            challenges.
+          </p>
+          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
+            As I navigate this exciting transition towards software engineering,
+            I am eager to apply my skills in new contexts, tackle challenges
+            head-on, and contribute to meaningful projects that push
+            technological boundaries. I invite you to connect with me on{" "}
+            <a
+              href="https://www.linkedin.com/in/jr-ribeiro/"
+              className="text-blue-500 hover:underline"
+            >
+              Linkedin
+            </a>{" "}
+            and explore my coding endeavors on{" "}
+            <a
+              href="https://github.com/0xjrr/"
+              className="text-blue-500 hover:underline"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+        </section>
+        <section className="flex flex-col items-center justify-center space-y-6 py-12">
+          <h2 className="text-2xl font-bold">Tech Stack</h2>
+          <DomainIconsBox name="Languages">
+            <Tooltip showArrow={true} color={"default"} content="Go">
+              <IconGolang />
+            </Tooltip>
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content="TypeScript & JS"
+            >
+              <IconTypescript />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Python">
+              <IconPython />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Java">
+              <IconJava />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Kotlin">
+              <IconBrandKotlin />
+            </Tooltip>
+          </DomainIconsBox>
+          <DomainIconsBox name="Frameworks">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content="ReactJS & React Native"
+            >
+              <IconReact />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Next.js">
+              <IconNextjs />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Tailwind CSS">
+              <IconTailwind />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Django">
+              <IconDjango />
+            </Tooltip>
+          </DomainIconsBox>
+          <DomainIconsBox name="Cloud Providers">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content="Microsoft Azure"
+            >
+              <IconMicrosoftazure />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Google Cloud">
+              <IconGooglecloud />
+            </Tooltip>
+          </DomainIconsBox>
+          <DomainIconsBox name="Containers">
+            <Tooltip showArrow={true} color={"default"} content="Docker">
+              <IconLogoDocker />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Kubernetes">
+              <IconKubernetes />
+            </Tooltip>
+          </DomainIconsBox>
+          <DomainIconsBox name="Machine Learning">
+            <Tooltip showArrow={true} color={"default"} content="TensorFlow">
+              <IconTensorflow />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="PyTorch">
+              <IconPytorch />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Scikit-learn">
+              <IconScikitlearn />
+            </Tooltip>
+          </DomainIconsBox>
+        </section>
 
-      <section
-        id="projects"
-        className="flex flex-col items-center justify-center space-y-6 py-12"
-      >
-        <h2 className="text-3xl font-bold">Projects</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Project 1</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-500 dark:text-gray-400">
-                Description of Project 1
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Project 2</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-500 dark:text-gray-400">
-                Description of Project 2
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Project 3</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-500 dark:text-gray-400">
-                Description of Project 3
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-    </div>
+        <section
+          id="projects"
+          className="flex flex-col items-center justify-center space-y-6 py-12"
+        >
+          <h2 className="text-3xl font-bold">Projects</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {MockProjects.map((project: Project) => (
+              <Card
+                key={project.title}
+                onClick={() => {
+                  console.log("Clicked on project: ", project.title);
+                  setSelectedProject(project);
+                }}
+              >
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    {project.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+            
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
