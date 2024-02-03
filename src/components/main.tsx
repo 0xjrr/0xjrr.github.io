@@ -41,17 +41,17 @@ export function MainPage() {
       <section id="about" className="flex flex-col items-center justify-center space-y-6 py-12">
         <h2 className="text-3xl font-bold">About</h2>
         <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-          Welcome to my corner on the web! I'm Ricardo, currently in Lisbon,
-          Portugal. At the moment I'm working as a Data Scientist, while also
+          Welcome to my corner on the web! I&apos;m Ricardo, currently in Lisbon,
+          Portugal. At the moment I&apos;m working as a Data Scientist, while also
           pursuing advanced studies in Computer Science. My passion lies in
           learning, developing software, solving complex data problems, and
           building cool projects. My expertise spans machine learning, software
           development, and data engineering, with proficiency in Python,
-          JavaScript, Java, and Golang. I'm constantly on the lookout for new
+          JavaScript, Java, and Golang. I&apos;m constantly on the lookout for new
           technologies and languages to master.
         </p>
         <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-          I am currently enhancing my technical skillset with a Master's degree
+          I am currently enhancing my technical skillset with a Master&apos;s degree
           in Computer Science at Faculdade de Ciências da Universidade de Lisboa,
           focusing on both the theoretical and practical aspects of software
           engineering. This, coupled with my background in environmental
