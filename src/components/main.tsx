@@ -34,18 +34,18 @@ import Project from "@/interfaces/project";
 
 const MockProjects: Project[] = [
   {
-    title: "House Quest App",
+    title: "House Quest Mobile App",
     description: "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
   },
   {
-    title: "Project 2",
-    description: "Description of Project 2",
+    title: "Sensor Data Collection And Analysis",
+    description: "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
   },
   {
-    title: "Project 3",
-    description: "Description of Project 3",
+    title: "Django backend for a web app and REST API",
+    description: "Backend for a web app and REST API. Built with Django, Python",
   },
-  { title: "Project 4", description: "Description of Project 4" },
+  { title: "React Web App", description: " Web app built with React, and ChackraUI" },
 ];
 
 export function MainPage() {
@@ -377,7 +377,7 @@ export function MainPage() {
           <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6">
             {MockProjects.map((project: Project) => (
               <Card
-                className="cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out max-w-lg"
+                className="mx-2 cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out max-w-lg"
                 key={project.title}
                 
                 onClick={() => {
