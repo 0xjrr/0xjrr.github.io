@@ -42,8 +42,8 @@ const MockProjects: Project[] = [
     description: "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
   },
   {
-    title: "Django backend for a web app and REST API",
-    description: "Backend for a web app and REST API. Built with Django, Python",
+    title: "Django backend Web App and REST API",
+    description: "Backend for a Web App and REST API. Built with Django, Python and SQLite.",
   },
   { title: "React Web App", description: " Web app built with React, and ChackraUI" },
 ];
