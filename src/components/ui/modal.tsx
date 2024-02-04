@@ -18,7 +18,7 @@ export default function ProjectModal({
       }}
       className="fixed z-auto top-0 left-0 w-full h-full bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50 flex items-center justify-center"
     >
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-1/2">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-3/4">
         <h2 className="text-3xl font-bold">{selectedProject?.title}</h2>
         <p className="text-gray-500 dark:text-gray-400">
           {selectedProject?.description}
