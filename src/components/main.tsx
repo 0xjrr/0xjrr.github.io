@@ -5,7 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 import DomainIconsBox from "./DomainIconsBox";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
-import { Tooltip } from "@nextui-org/react";
+import { Tooltip, Button } from "@nextui-org/react";
 import {
   IconAirplaneSharp,
   IconBrandKotlin,
@@ -136,23 +136,69 @@ export function MainPage() {
         <section className="flex flex-col items-center justify-center space-y-6 py-12">
           <h2 className="text-2xl font-bold">Tech Stack</h2>
           <DomainIconsBox name="Languages">
-            <Tooltip showArrow={true} color={"default"} content="Go">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Go
+                  </div>
+                </div>
+              }
+            >
               <IconGolang />
             </Tooltip>
             <Tooltip
               showArrow={true}
               color={"default"}
-              content="TypeScript & JS"
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    TypeScript & JS
+                  </div>
+                </div>
+              }
             >
               <IconTypescript />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Python">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Python
+                  </div>
+                </div>
+              }
+            >
               <IconPython />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Java">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Java
+                  </div>
+                </div>
+              }
+            >
               <IconJava />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Kotlin">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Kotlin
+                  </div>
+                </div>
+              }
+            >
               <IconBrandKotlin />
             </Tooltip>
           </DomainIconsBox>
@@ -160,17 +206,53 @@ export function MainPage() {
             <Tooltip
               showArrow={true}
               color={"default"}
-              content="ReactJS & React Native"
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    ReactJS & React Native
+                  </div>
+                </div>
+              }
             >
               <IconReact />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Next.js">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Next.js
+                  </div>
+                </div>
+              }
+            >
               <IconNextjs />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Tailwind CSS">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Tailwind CSS
+                  </div>
+                </div>
+              }
+            >
               <IconTailwind />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Django">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Django
+                  </div>
+                </div>
+              }
+            >
               <IconDjango />
             </Tooltip>
           </DomainIconsBox>
@@ -178,33 +260,109 @@ export function MainPage() {
             <Tooltip
               showArrow={true}
               color={"default"}
-              content="Microsoft Azure"
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Microsoft Azure
+                  </div>
+                </div>
+              }
             >
               <IconMicrosoftazure />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Google Cloud">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Google Cloud
+                  </div>
+                </div>
+              }
+            >
               <IconGooglecloud />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Firebase">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Firebase
+                  </div>
+                </div>
+              }
+            >
               <IconLogoFirebase />
             </Tooltip>
           </DomainIconsBox>
           <DomainIconsBox name="Containers">
-            <Tooltip showArrow={true} color={"default"} content="Docker">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Docker
+                  </div>
+                </div>
+              }
+            >
               <IconLogoDocker />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Kubernetes">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Kubernetes
+                  </div>
+                </div>
+              }
+            >
               <IconKubernetes />
             </Tooltip>
           </DomainIconsBox>
           <DomainIconsBox name="Machine Learning">
-            <Tooltip showArrow={true} color={"default"} content="TensorFlow">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    TensorFlow
+                  </div>
+                </div>
+              }
+            >
               <IconTensorflow />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="PyTorch">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    PyTorch
+                  </div>
+                </div>
+              }
+            >
               <IconPytorch />
             </Tooltip>
-            <Tooltip showArrow={true} color={"default"} content="Scikit-learn">
+            <Tooltip
+              showArrow={true}
+              color={"default"}
+              content={
+                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                    Scikit-learn
+                  </div>
+                </div>
+              }
+            >
               <IconScikitlearn />
             </Tooltip>
           </DomainIconsBox>
@@ -234,7 +392,6 @@ export function MainPage() {
                 </CardContent>
               </Card>
             ))}
-            
           </div>
         </section>
       </div>
