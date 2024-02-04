@@ -417,15 +417,15 @@ export function MainPage() {
             </a>
             .
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-6">
             <Link href="https://github.com/0xjrr/" > 
-            <IconGithub className="h-7 w-7" />
+            <IconGithub className="h-8 w-8" />
             </Link>
             <Link href="https://www.linkedin.com/in/jr-ribeiro/" >
-            <IconLinkedin className="h-7 w-7" />
+            <IconLinkedin className="h-8 w-8" />
             </Link>
             <Link href="mailto:" >
-            <IconMail className="h-7 w-7" />
+            <IconMail className="h-8 w-8" />
             </Link>
           </div>
 
