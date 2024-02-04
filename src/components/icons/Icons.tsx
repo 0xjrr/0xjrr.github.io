@@ -18,6 +18,7 @@ export const IconGolang = React.forwardRef<
     </div>
   );
 });
+IconGolang.displayName = 'IconGolang';
 
 export const IconTensorflow = React.forwardRef<
   HTMLDivElement,
@@ -37,6 +38,7 @@ export const IconTensorflow = React.forwardRef<
     </div>
   );
 });
+IconTensorflow.displayName = 'IconTensorflow';
 
 export const IconPytorch = React.forwardRef<
   HTMLDivElement,
@@ -56,6 +58,7 @@ export const IconPytorch = React.forwardRef<
     </div>
   );
 });
+IconPytorch.displayName = 'IconPytorch';
 
 export const IconScikitlearn = React.forwardRef<
   HTMLDivElement,
@@ -75,6 +78,7 @@ export const IconScikitlearn = React.forwardRef<
     </div>
   );
 });
+IconScikitlearn.displayName = 'IconScikitlearn';
 
 export const IconNextjs = React.forwardRef<
   HTMLDivElement,
@@ -91,6 +95,7 @@ export const IconNextjs = React.forwardRef<
     </div>
   );
 });
+IconNextjs.displayName = 'IconNextjs';
 
 export const IconAirplaneSharp = React.forwardRef<
   HTMLDivElement,
@@ -110,6 +115,7 @@ export const IconAirplaneSharp = React.forwardRef<
     </div>
   );
 });
+IconAirplaneSharp.displayName = 'IconAirplaneSharp';
 
 export const IconKubernetes = React.forwardRef<
   HTMLDivElement,
@@ -129,6 +135,7 @@ export const IconKubernetes = React.forwardRef<
     </div>
   );
 });
+IconKubernetes.displayName = 'IconKubernetes';
 
 export const IconLogoDocker = React.forwardRef<
   HTMLDivElement,
@@ -150,6 +157,7 @@ export const IconLogoDocker = React.forwardRef<
     </div>
   );
 });
+IconLogoDocker.displayName = 'IconLogoDocker';
 
 export const IconDjango = React.forwardRef<
   HTMLDivElement,
@@ -169,6 +177,8 @@ export const IconDjango = React.forwardRef<
     </div>
   );
 });
+IconDjango.displayName = 'IconDjango';
+
 export const IconTailwind = React.forwardRef<
   HTMLDivElement,
   React.SVGProps<SVGSVGElement>
@@ -187,6 +197,8 @@ export const IconTailwind = React.forwardRef<
     </div>
   );
 });
+IconTailwind.displayName = 'IconTailwind';
+
 export const IconReact = React.forwardRef<
   HTMLDivElement,
   React.SVGProps<SVGSVGElement>
@@ -205,6 +217,8 @@ export const IconReact = React.forwardRef<
     </div>
   );
 });
+IconReact.displayName = 'IconReact';
+
 export const IconJava = React.forwardRef<
   HTMLDivElement,
   React.SVGProps<SVGSVGElement>
@@ -226,6 +240,7 @@ export const IconJava = React.forwardRef<
     </div>
   );
 });
+IconJava.displayName = 'IconJava';
 
 export const IconPython = React.forwardRef<
   HTMLDivElement,
@@ -245,6 +260,8 @@ export const IconPython = React.forwardRef<
     </div>
   );
 });
+IconPython.displayName = 'IconPython';
+
 export const IconTypescript = React.forwardRef<
   HTMLDivElement,
   React.SVGProps<SVGSVGElement>
@@ -263,6 +280,8 @@ export const IconTypescript = React.forwardRef<
     </div>
   );
 });
+IconTypescript.displayName = 'IconTypescript';
+
 export const IconMicrosoftazure = React.forwardRef<
   HTMLDivElement,
   React.SVGProps<SVGSVGElement>
@@ -281,6 +300,8 @@ export const IconMicrosoftazure = React.forwardRef<
     </div>
   );
 });
+IconMicrosoftazure.displayName = 'IconMicrosoftazure';
+
 export const IconGooglecloud = React.forwardRef<
   HTMLDivElement,
   React.SVGProps<SVGSVGElement>
@@ -299,6 +320,8 @@ export const IconGooglecloud = React.forwardRef<
     </div>
   );
 });
+IconGooglecloud.displayName = 'IconGooglecloud';
+
 export const IconBrandKotlin = React.forwardRef<
   HTMLDivElement,
   React.SVGProps<SVGSVGElement>
@@ -322,6 +345,7 @@ export const IconBrandKotlin = React.forwardRef<
     </div>
   );
 });
+IconBrandKotlin.displayName = 'IconBrandKotlin';
 
 export const IconLogoFirebase = React.forwardRef<
   HTMLDivElement,
@@ -341,3 +365,4 @@ export const IconLogoFirebase = React.forwardRef<
     </div>
   );
 });
+IconLogoFirebase.displayName = 'IconLogoFirebase';
