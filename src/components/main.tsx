@@ -10,12 +10,15 @@ import {
   IconAirplaneSharp,
   IconBrandKotlin,
   IconDjango,
+  IconGithub,
   IconGolang,
   IconGooglecloud,
   IconJava,
   IconKubernetes,
+  IconLinkedin,
   IconLogoDocker,
   IconLogoFirebase,
+  IconMail,
   IconMicrosoftazure,
   IconNextjs,
   IconPython,
@@ -67,6 +70,7 @@ export function MainPage() {
             <AvatarFallback>RR</AvatarFallback>
           </Avatar>
           <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
+          
           <div className="text-lg text-gray-500 dark:text-gray-400 flex flex-wrap justify-center ">
             <span className="px-2 text-2xl ">Data Science </span>{" "}
             <IconAirplaneSharp className="h-7 w-7" />{" "}
@@ -83,7 +87,7 @@ export function MainPage() {
           >
             Projects
           </Link>
-          <Link className="text-lg font-medium hover:underline" href="#">
+          <Link className="text-lg font-medium hover:underline" href="#contact">
             Contact
           </Link>
         </nav>
@@ -394,6 +398,39 @@ export function MainPage() {
             ))}
           </div>
         </section>
+        <section id="contact" className="flex flex-col items-center justify-center space-y-6 py-12">
+          <h2 className="text-3xl font-bold">Contact</h2>
+          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
+            If you&apos;d like to get in touch, feel free to reach out to me
+            or connect with me on{" "}
+            <a
+              href="https://www.linkedin.com/in/jr-ribeiro/"
+              className="text-current hover:underline"
+            >
+              Linkedin
+            </a>{" "}
+            and explore my coding endeavors on{" "}
+            <a
+              href="https://github.com/0xjrr/" className="text-current hover:underline"
+            >
+              GitHub
+            </a>
+            .
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link href="https://github.com/0xjrr/" > 
+            <IconGithub className="h-7 w-7" />
+            </Link>
+            <Link href="https://www.linkedin.com/in/jr-ribeiro/" >
+            <IconLinkedin className="h-7 w-7" />
+            </Link>
+            <Link href="mailto:" >
+            <IconMail className="h-7 w-7" />
+            </Link>
+          </div>
+
+        </section>
+
       </div>
     </>
   );
