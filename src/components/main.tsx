@@ -35,17 +35,27 @@ import Project from "@/interfaces/project";
 const MockProjects: Project[] = [
   {
     title: "House Quest Mobile App",
-    description: "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
+    description:
+      "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
+      github: "https://github.com/0xjrr/HouseQuest",
   },
   {
     title: "Sensor Data Collection And Analysis",
-    description: "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
+    description:
+      "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
+      github: "https://github.com/0xjrr/iot-project-fcul",
   },
   {
     title: "Django backend Web App and REST API",
-    description: "Backend for a Web App and REST API. Built with Django, Python and SQLite.",
+    description:
+      "Backend for a Web App and REST API. Built with Django, Python and SQLite.",
+      github: "https://github.com/0xjrr/meta-backend-django-capstone"
   },
-  { title: "React Web App", description: " Web app built with React, and ChackraUI" },
+  {
+    title: "React Web App",
+    description: " Web app built with React, and ChackraUI",
+    github: "https://github.com/0xjrr/capstone-frontend-littlelemon",
+  },
 ];
 
 export function MainPage() {
@@ -379,12 +389,11 @@ export function MainPage() {
               <Card
                 className="mx-2 cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out max-w-lg"
                 key={project.title}
-                
                 onClick={() => {
                   console.log("Clicked on project: ", project.title);
                   if (!isModalOpen) {
-                  setSelectedProject(project);
-                  setIsModalOpen(true);
+                    setSelectedProject(project);
+                    setIsModalOpen(true);
                   }
                 }}
               >
@@ -440,7 +449,8 @@ export function MainPage() {
         <ProjectModal
           setIsModalOpen={setIsModalOpen}
           selectedProject={selectedProject}
-          setSelectedProject={setSelectedProject} />
+          setSelectedProject={setSelectedProject}
+        />
       )}
     </>
   );
