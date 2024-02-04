@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Button } from "@nextui-org/react";
 import Project from "@/interfaces/project";
 import { IconGithub } from "../icons/Icons";
+import Link from "next/link";
 
 export default function ProjectModal({
   setIsModalOpen,
@@ -26,6 +27,7 @@ export default function ProjectModal({
         </p>
         <div className="flex justify-center space-x-4">
           {/* github button */}
+          <Link href={!!selectedProject?.github?selectedProject?.github:''}> 
           <div className="cursor-pointer flex items-center  justify-center p-2">
             <div className="flex items-center hover:bg-gray-150 dark:hover:bg-gray-500 hover:shadow-lg bg-gray-200 dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden min-w-[360px] md:min-w-[450px] lg:min-w-[450px]">
               <div className="p-4 flex-grow ">
@@ -40,6 +42,7 @@ export default function ProjectModal({
               </div>
             </div>
           </div>
+          </Link>
           {/* cancel button */}
           <div onClick={() => {
             setIsModalOpen(false);
