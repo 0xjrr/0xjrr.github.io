@@ -18,7 +18,7 @@ export const IconGolang = React.forwardRef<
     </div>
   );
 });
-IconGolang.displayName = 'IconGolang';
+IconGolang.displayName = "IconGolang";
 
 export const IconTensorflow = React.forwardRef<
   HTMLDivElement,
@@ -38,7 +38,7 @@ export const IconTensorflow = React.forwardRef<
     </div>
   );
 });
-IconTensorflow.displayName = 'IconTensorflow';
+IconTensorflow.displayName = "IconTensorflow";
 
 export const IconPytorch = React.forwardRef<
   HTMLDivElement,
@@ -58,7 +58,7 @@ export const IconPytorch = React.forwardRef<
     </div>
   );
 });
-IconPytorch.displayName = 'IconPytorch';
+IconPytorch.displayName = "IconPytorch";
 
 export const IconScikitlearn = React.forwardRef<
   HTMLDivElement,
@@ -78,7 +78,7 @@ export const IconScikitlearn = React.forwardRef<
     </div>
   );
 });
-IconScikitlearn.displayName = 'IconScikitlearn';
+IconScikitlearn.displayName = "IconScikitlearn";
 
 export const IconNextjs = React.forwardRef<
   HTMLDivElement,
@@ -95,7 +95,7 @@ export const IconNextjs = React.forwardRef<
     </div>
   );
 });
-IconNextjs.displayName = 'IconNextjs';
+IconNextjs.displayName = "IconNextjs";
 
 export const IconAirplaneSharp = React.forwardRef<
   HTMLDivElement,
@@ -115,7 +115,7 @@ export const IconAirplaneSharp = React.forwardRef<
     </div>
   );
 });
-IconAirplaneSharp.displayName = 'IconAirplaneSharp';
+IconAirplaneSharp.displayName = "IconAirplaneSharp";
 
 export const IconKubernetes = React.forwardRef<
   HTMLDivElement,
@@ -135,7 +135,7 @@ export const IconKubernetes = React.forwardRef<
     </div>
   );
 });
-IconKubernetes.displayName = 'IconKubernetes';
+IconKubernetes.displayName = "IconKubernetes";
 
 export const IconLogoDocker = React.forwardRef<
   HTMLDivElement,
@@ -157,7 +157,7 @@ export const IconLogoDocker = React.forwardRef<
     </div>
   );
 });
-IconLogoDocker.displayName = 'IconLogoDocker';
+IconLogoDocker.displayName = "IconLogoDocker";
 
 export const IconDjango = React.forwardRef<
   HTMLDivElement,
@@ -177,7 +177,7 @@ export const IconDjango = React.forwardRef<
     </div>
   );
 });
-IconDjango.displayName = 'IconDjango';
+IconDjango.displayName = "IconDjango";
 
 export const IconTailwind = React.forwardRef<
   HTMLDivElement,
@@ -197,7 +197,7 @@ export const IconTailwind = React.forwardRef<
     </div>
   );
 });
-IconTailwind.displayName = 'IconTailwind';
+IconTailwind.displayName = "IconTailwind";
 
 export const IconReact = React.forwardRef<
   HTMLDivElement,
@@ -217,7 +217,7 @@ export const IconReact = React.forwardRef<
     </div>
   );
 });
-IconReact.displayName = 'IconReact';
+IconReact.displayName = "IconReact";
 
 export const IconJava = React.forwardRef<
   HTMLDivElement,
@@ -240,7 +240,7 @@ export const IconJava = React.forwardRef<
     </div>
   );
 });
-IconJava.displayName = 'IconJava';
+IconJava.displayName = "IconJava";
 
 export const IconPython = React.forwardRef<
   HTMLDivElement,
@@ -260,7 +260,7 @@ export const IconPython = React.forwardRef<
     </div>
   );
 });
-IconPython.displayName = 'IconPython';
+IconPython.displayName = "IconPython";
 
 export const IconTypescript = React.forwardRef<
   HTMLDivElement,
@@ -280,7 +280,7 @@ export const IconTypescript = React.forwardRef<
     </div>
   );
 });
-IconTypescript.displayName = 'IconTypescript';
+IconTypescript.displayName = "IconTypescript";
 
 export const IconMicrosoftazure = React.forwardRef<
   HTMLDivElement,
@@ -300,7 +300,7 @@ export const IconMicrosoftazure = React.forwardRef<
     </div>
   );
 });
-IconMicrosoftazure.displayName = 'IconMicrosoftazure';
+IconMicrosoftazure.displayName = "IconMicrosoftazure";
 
 export const IconGooglecloud = React.forwardRef<
   HTMLDivElement,
@@ -320,7 +320,7 @@ export const IconGooglecloud = React.forwardRef<
     </div>
   );
 });
-IconGooglecloud.displayName = 'IconGooglecloud';
+IconGooglecloud.displayName = "IconGooglecloud";
 
 export const IconBrandKotlin = React.forwardRef<
   HTMLDivElement,
@@ -345,7 +345,7 @@ export const IconBrandKotlin = React.forwardRef<
     </div>
   );
 });
-IconBrandKotlin.displayName = 'IconBrandKotlin';
+IconBrandKotlin.displayName = "IconBrandKotlin";
 
 export const IconLogoFirebase = React.forwardRef<
   HTMLDivElement,
@@ -365,4 +365,68 @@ export const IconLogoFirebase = React.forwardRef<
     </div>
   );
 });
-IconLogoFirebase.displayName = 'IconLogoFirebase';
+IconLogoFirebase.displayName = "IconLogoFirebase";
+
+export const IconGithub = React.forwardRef<
+  HTMLDivElement,
+  React.SVGProps<SVGSVGElement>
+>((props: React.SVGProps<SVGSVGElement>, ref) => {
+  return (
+    <div ref={ref}>
+      <svg
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        height="1em"
+        width="1em"
+        {...props}
+      >
+        <path
+          fillRule="evenodd"
+          d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 012.496-.336 9.554 9.554 0 012.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+          clipRule="evenodd"
+        />{" "}
+      </svg>
+    </div>
+  );
+});
+IconGithub.displayName = "IconGithub";
+
+export const IconLinkedin = React.forwardRef<
+  HTMLDivElement,
+  React.SVGProps<SVGSVGElement>
+>((props: React.SVGProps<SVGSVGElement>, ref) => {
+  return (
+    <div ref={ref}>
+      <svg
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        height="1em"
+        width="1em"
+        {...props}
+      >
+        <path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z" />
+      </svg>
+    </div>
+  );
+});
+IconLinkedin.displayName = "IconLinkedin";
+
+export const IconMail = React.forwardRef<
+  HTMLDivElement,
+  React.SVGProps<SVGSVGElement>
+>((props: React.SVGProps<SVGSVGElement>, ref) => {
+  return (
+    <div ref={ref}>
+      <svg
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        height="1em"
+        width="1em"
+        {...props}
+      >
+        <path d="M18.73 5.41l-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 002 7.05v11.59A1.36 1.36 0 003.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0022 18.64V7.05a2 2 0 00-3.27-1.64z" />
+      </svg>
+    </div>
+  );
+});
+IconMail.displayName = "IconMail";
