@@ -34,8 +34,8 @@ import Project from "@/interfaces/project";
 
 const MockProjects: Project[] = [
   {
-    title: "Project 1",
-    description: "Description of Project 1",
+    title: "House Quest App",
+    description: "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
   },
   {
     title: "Project 2",
@@ -374,10 +374,10 @@ export function MainPage() {
           className="flex flex-col items-center justify-center space-y-6 py-12"
         >
           <h2 className="text-3xl font-bold">Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6">
             {MockProjects.map((project: Project) => (
               <Card
-                className="cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out"
+                className="cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out max-w-lg"
                 key={project.title}
                 
                 onClick={() => {
