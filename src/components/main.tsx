@@ -30,11 +30,7 @@ import {
   IconTypescript,
 } from "./icons/Icons";
 import ProjectModal from "./ui/modal";
-
-interface Project {
-  title: string;
-  description: string;
-}
+import Project from "@/interfaces/project";
 
 const MockProjects: Project[] = [
   {
@@ -54,6 +50,7 @@ const MockProjects: Project[] = [
 
 export function MainPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -70,7 +67,7 @@ export function MainPage() {
             <AvatarFallback>RR</AvatarFallback>
           </Avatar>
           <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
-          
+
           <div className="text-lg text-gray-500 dark:text-gray-400 flex flex-wrap justify-center ">
             <span className="px-2 text-2xl ">Data Science </span>{" "}
             <IconAirplaneSharp className="h-7 w-7" />{" "}
@@ -380,10 +377,12 @@ export function MainPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {MockProjects.map((project: Project) => (
               <Card
+                className="cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out"
                 key={project.title}
                 onClick={() => {
                   console.log("Clicked on project: ", project.title);
                   setSelectedProject(project);
+                  setIsModalOpen(true);
                 }}
               >
                 <CardHeader>
@@ -398,11 +397,14 @@ export function MainPage() {
             ))}
           </div>
         </section>
-        <section id="contact" className="flex flex-col items-center justify-center space-y-6 py-12">
+        <section
+          id="contact"
+          className="flex flex-col items-center justify-center space-y-6 py-12"
+        >
           <h2 className="text-3xl font-bold">Contact</h2>
           <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-            If you&apos;d like to get in touch, feel free to reach out to me
-            or connect with me on{" "}
+            If you&apos;d like to get in touch, feel free to reach out to me or
+            connect with me on{" "}
             <a
               href="https://www.linkedin.com/in/jr-ribeiro/"
               className="text-current hover:underline"
@@ -411,27 +413,32 @@ export function MainPage() {
             </a>{" "}
             and explore my coding endeavors on{" "}
             <a
-              href="https://github.com/0xjrr/" className="text-current hover:underline"
+              href="https://github.com/0xjrr/"
+              className="text-current hover:underline"
             >
               GitHub
             </a>
             .
           </p>
           <div className="grid grid-cols-3 gap-6">
-            <Link href="https://github.com/0xjrr/" > 
-            <IconGithub className="h-8 w-8" />
+            <Link href="https://github.com/0xjrr/">
+              <IconGithub className="h-8 w-8" />
             </Link>
-            <Link href="https://www.linkedin.com/in/jr-ribeiro/" >
-            <IconLinkedin className="h-8 w-8" />
+            <Link href="https://www.linkedin.com/in/jr-ribeiro/">
+              <IconLinkedin className="h-8 w-8" />
             </Link>
-            <Link href="mailto:" >
-            <IconMail className="h-8 w-8" />
+            <Link href="mailto:">
+              <IconMail className="h-8 w-8" />
             </Link>
           </div>
-
         </section>
-
       </div>
+      {isModalOpen && (
+        <ProjectModal
+          setIsModalOpen={setIsModalOpen}
+          selectedProject={selectedProject}
+          setSelectedProject={setSelectedProject} />
+      )}
     </>
   );
 }
