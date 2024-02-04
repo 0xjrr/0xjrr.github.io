@@ -379,10 +379,13 @@ export function MainPage() {
               <Card
                 className="cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out"
                 key={project.title}
+                
                 onClick={() => {
                   console.log("Clicked on project: ", project.title);
+                  if (!isModalOpen) {
                   setSelectedProject(project);
                   setIsModalOpen(true);
+                  }
                 }}
               >
                 <CardHeader>
