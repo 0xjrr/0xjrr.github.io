@@ -15,6 +15,7 @@ import {
   IconJava,
   IconKubernetes,
   IconLogoDocker,
+  IconLogoFirebase,
   IconMicrosoftazure,
   IconNextjs,
   IconPython,
@@ -173,7 +174,7 @@ export function MainPage() {
               <IconDjango />
             </Tooltip>
           </DomainIconsBox>
-          <DomainIconsBox name="Cloud Providers">
+          <DomainIconsBox name="Cloud Infra">
             <Tooltip
               showArrow={true}
               color={"default"}
@@ -183,6 +184,9 @@ export function MainPage() {
             </Tooltip>
             <Tooltip showArrow={true} color={"default"} content="Google Cloud">
               <IconGooglecloud />
+            </Tooltip>
+            <Tooltip showArrow={true} color={"default"} content="Firebase">
+              <IconLogoFirebase />
             </Tooltip>
           </DomainIconsBox>
           <DomainIconsBox name="Containers">
