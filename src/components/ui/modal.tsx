@@ -36,7 +36,7 @@ export default function ProjectModal({
               <div className="flex items-center hover:bg-gray-150 dark:hover:bg-gray-500 hover:shadow-lg bg-gray-200 dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden max-w-lg flex-grow">
                 <div className="p-4 flex-grow">
                   <p className="text-lg font-bold text-gray-500 dark:text-gray-300">
-                    View on Github
+                    View Github
                   </p>
                 </div>
 
