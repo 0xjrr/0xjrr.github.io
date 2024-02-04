@@ -25,30 +25,37 @@ export default function ProjectModal({
         <p className="text-gray-500 dark:text-gray-400">
           {selectedProject?.description}
         </p>
-        <div className="flex justify-center space-x-4">
+        <div className="py-4 flex flex-col sm:flex-row flex-grow justify-center space-y-4 sm:space-y-0 sm:space-x-4">
           {/* github button */}
-          <Link target="_blank" href={!!selectedProject?.github?selectedProject?.github:''}> 
-          <div className="cursor-pointer flex items-center  justify-center p-2">
-            <div className="flex items-center hover:bg-gray-150 dark:hover:bg-gray-500 hover:shadow-lg bg-gray-200 dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden min-w-[360px] md:min-w-[450px] lg:min-w-[450px]">
-              <div className="p-4 flex-grow ">
-                <p className="text-lg font-bold text-gray-500 dark:text-gray-300">
-                  Github
-                </p>
-              </div>
+          <Link
+            className="flex-grow"
+            target="_blank"
+            href={!!selectedProject?.github ? selectedProject?.github : ""}
+          >
+            <div className="cursor-pointer flex items-center justify-center p-2 flex-grow">
+              <div className="flex items-center hover:bg-gray-150 dark:hover:bg-gray-500 hover:shadow-lg bg-gray-200 dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden max-w-lg flex-grow">
+                <div className="p-4 flex-grow">
+                  <p className="text-lg font-bold text-gray-500 dark:text-gray-300">
+                    View on Github
+                  </p>
+                </div>
 
-              {/* Icons */}
-              <div className="flex items-center space-x-4 p-4 bg-inherit justify-end">
-                <IconGithub />
+                {/* Icons */}
+                <div className="flex items-center space-x-4 p-4 bg-inherit justify-end">
+                  <IconGithub className="w-8 h-8"/>
+                </div>
               </div>
             </div>
-          </div>
           </Link>
           {/* cancel button */}
-          <div onClick={() => {
-            setIsModalOpen(false);
-            setSelectedProject(null);
-          }} className="cursor-pointer flex items-center justify-center p-2">
-            <div className="flex items-center hover:bg-red-300 dark:hover:bg-red-500 hover:shadow-lg bg-red-200 dark:bg-red-400 shadow-lg rounded-lg overflow-hidden min-w-[360px] md:min-w-[450px] lg:min-w-[450px]">
+          <div
+            onClick={() => {
+              setIsModalOpen(false);
+              setSelectedProject(null);
+            }}
+            className="cursor-pointer flex items-center justify-center p-2 flex-grow"
+          >
+            <div className="flex items-center hover:bg-red-300 dark:hover:bg-red-500 hover:shadow-lg bg-red-200 dark:bg-red-400 shadow-lg rounded-lg overflow-hidden max-w-lg w-full">
               <div className="p-4 flex-grow">
                 <p className="text-lg font-bold text-gray-500 dark:text-gray-200">
                   Close
