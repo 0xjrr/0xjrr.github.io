@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Button } from "@nextui-org/react";
 import Project from "@/interfaces/project";
+import { IconGithub } from "../icons/Icons";
 
 export default function ProjectModal({
   setIsModalOpen,
@@ -23,16 +24,36 @@ export default function ProjectModal({
         <p className="text-gray-500 dark:text-gray-400">
           {selectedProject?.description}
         </p>
-        <Button
-          color="primary"
-          variant="light"
-          onPress={() => {
+        <div className="flex justify-center space-x-4">
+          {/* github button */}
+          <div className="cursor-pointer flex items-center  justify-center p-2">
+            <div className="flex items-center hover:bg-gray-150 dark:hover:bg-gray-500 hover:shadow-lg bg-gray-200 dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden min-w-[360px] md:min-w-[450px] lg:min-w-[450px]">
+              <div className="p-4 flex-grow ">
+                <p className="text-lg font-bold text-gray-500 dark:text-gray-300">
+                  Github
+                </p>
+              </div>
+
+              {/* Icons */}
+              <div className="flex items-center space-x-4 p-4 bg-inherit justify-end">
+                <IconGithub />
+              </div>
+            </div>
+          </div>
+          {/* cancel button */}
+          <div onClick={() => {
             setIsModalOpen(false);
             setSelectedProject(null);
-          }}
-        >
-          Close
-        </Button>
+          }} className="cursor-pointer flex items-center justify-center p-2">
+            <div className="flex items-center hover:bg-red-300 dark:hover:bg-red-500 hover:shadow-lg bg-red-200 dark:bg-red-400 shadow-lg rounded-lg overflow-hidden min-w-[360px] md:min-w-[450px] lg:min-w-[450px]">
+              <div className="p-4 flex-grow">
+                <p className="text-lg font-bold text-gray-500 dark:text-gray-200">
+                  Close
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
