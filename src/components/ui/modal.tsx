@@ -1,73 +1,39 @@
 import React, { useEffect } from "react";
-import {
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  useDisclosure,
-} from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
+import Project from "@/interfaces/project";
 
 export default function ProjectModal({
-  isModalOpen,
   setIsModalOpen,
+  selectedProject,
+  setSelectedProject,
 }: {
-  isModalOpen: boolean;
   setIsModalOpen: (value: boolean) => void;
+  selectedProject: Project | null;
+  setSelectedProject: (value: Project | null) => void;
 }) {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-  useEffect(() => {
-    if (isModalOpen) {
-        console.log("isModalOpen", isModalOpen);
-      onOpen();
-      setIsModalOpen(false);
-    }
-  }, [isModalOpen, setIsModalOpen, onOpen]);
-
   return (
-    <>
-      <Button onPress={onOpen}>Open Modal</Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
-              <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-    </>
+    <div
+      onClick={() => {
+        setIsModalOpen(false);
+      }}
+      className="fixed z-auto top-0 left-0 w-full h-full bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50 flex items-center justify-center"
+    >
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-1/2">
+        <h2 className="text-3xl font-bold">{selectedProject?.title}</h2>
+        <p className="text-gray-500 dark:text-gray-400">
+          {selectedProject?.description}
+        </p>
+        <Button
+          color="primary"
+          variant="light"
+          onPress={() => {
+            setIsModalOpen(false);
+            setSelectedProject(null);
+          }}
+        >
+          Close
+        </Button>
+      </div>
+    </div>
   );
 }
