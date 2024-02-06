@@ -384,10 +384,10 @@ export function MainPage() {
           className="flex flex-col items-center justify-center space-y-6 py-12"
         >
           <h2 className="text-3xl font-bold">Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-6">
             {MockProjects.map((project: Project) => (
               <Card
-                className="mx-2 cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out max-w-lg"
+                className="mx-4 cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out max-w-2xl"
                 key={project.title}
                 onClick={() => {
                   console.log("Clicked on project: ", project.title);
