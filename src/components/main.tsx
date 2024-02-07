@@ -37,19 +37,19 @@ const MockProjects: Project[] = [
     title: "House Quest Mobile App",
     description:
       "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
-      github: "https://github.com/0xjrr/HouseQuest",
+    github: "https://github.com/0xjrr/HouseQuest",
   },
   {
     title: "Sensor Data Collection And Analysis",
     description:
       "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
-      github: "https://github.com/0xjrr/iot-project-fcul",
+    github: "https://github.com/0xjrr/iot-project-fcul",
   },
   {
     title: "Django backend Web App and REST API",
     description:
       "Backend for a Web App and REST API. Built with Django, Python and SQLite.",
-      github: "https://github.com/0xjrr/meta-backend-django-capstone"
+    github: "https://github.com/0xjrr/meta-backend-django-capstone",
   },
   {
     title: "React Web App",
@@ -58,20 +58,19 @@ const MockProjects: Project[] = [
   },
 ];
 
-
 export function MainPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   useEffect(() => {
     if (isModalOpen) {
-      document.body.classList.add('overflow-hidden');
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
     }
-  
+
     return () => {
-      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove("overflow-hidden");
     };
   }, [isModalOpen]);
 
@@ -172,7 +171,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconGolang />
+              <IconGolang className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -185,7 +184,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconTypescript />
+              <IconTypescript className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -198,7 +197,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconPython />
+              <IconPython className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -211,7 +210,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconJava />
+              <IconJava className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -224,7 +223,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconBrandKotlin />
+              <IconBrandKotlin className="h-4 w-4" />
             </Tooltip>
           </DomainIconsBox>
           <DomainIconsBox name="Frameworks">
@@ -239,7 +238,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconReact />
+              <IconReact className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -252,7 +251,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconNextjs />
+              <IconNextjs className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -265,7 +264,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconTailwind />
+              <IconTailwind className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -278,7 +277,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconDjango />
+              <IconDjango className="h-4 w-4" />
             </Tooltip>
           </DomainIconsBox>
           <DomainIconsBox name="Cloud Infra">
@@ -293,7 +292,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconMicrosoftazure />
+              <IconMicrosoftazure className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -306,7 +305,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconGooglecloud />
+              <IconGooglecloud className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -319,7 +318,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconLogoFirebase />
+              <IconLogoFirebase className="h-4 w-4" />
             </Tooltip>
           </DomainIconsBox>
           <DomainIconsBox name="Containers">
@@ -334,7 +333,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconLogoDocker />
+              <IconLogoDocker className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -347,7 +346,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconKubernetes />
+              <IconKubernetes className="h-4 w-4" />
             </Tooltip>
           </DomainIconsBox>
           <DomainIconsBox name="Machine Learning">
@@ -362,7 +361,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconTensorflow />
+              <IconTensorflow className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -375,7 +374,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconPytorch />
+              <IconPytorch className="h-4 w-4" />
             </Tooltip>
             <Tooltip
               showArrow={true}
@@ -388,7 +387,7 @@ export function MainPage() {
                 </div>
               }
             >
-              <IconScikitlearn />
+              <IconScikitlearn className="h-4 w-4" />
             </Tooltip>
           </DomainIconsBox>
         </section>
@@ -448,13 +447,13 @@ export function MainPage() {
           </p>
           <div className="grid grid-cols-3 gap-6">
             <Link href="https://github.com/0xjrr/">
-              <IconGithub className="h-8 w-8" />
+              <IconGithub className="h-4 w-4" />
             </Link>
             <Link href="https://www.linkedin.com/in/jr-ribeiro/">
-              <IconLinkedin className="h-8 w-8" />
+              <IconLinkedin className="h-4 w-4" />
             </Link>
             <Link href="mailto:">
-              <IconMail className="h-8 w-8" />
+              <IconMail className="h-4 w-4" />
             </Link>
           </div>
         </section>
