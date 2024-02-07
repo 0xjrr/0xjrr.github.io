@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 
+
 const config = {
   darkMode: ["class"],
   content: [
@@ -72,9 +73,23 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      scrollbar: (theme: any) => ({
+        thin: {
+          width: '4px',
+          'scrollbar-thumb-color': theme('colors.gray.800'),
+          'scrollbar-thumb-rounded': 'md',
+          'scrollbar-track-color': theme('colors.gray.200'),
+        },
+      }),
+      spacing: {
+        'screen-90': '90dvh',  // 90% of the viewport height
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('tailwind-scrollbar'),
+  ],
 } satisfies Config
 
 export default config
