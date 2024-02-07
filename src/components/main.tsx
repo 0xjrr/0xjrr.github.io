@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import DomainIconsBox from "./DomainIconsBox";
@@ -58,9 +58,23 @@ const MockProjects: Project[] = [
   },
 ];
 
+
 export function MainPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+  
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isModalOpen]);
+
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
