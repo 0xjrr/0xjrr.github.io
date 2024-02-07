@@ -3,6 +3,7 @@ import { Button } from "@nextui-org/react";
 import Project from "@/interfaces/project";
 import { IconGithub } from "../icons/Icons";
 import Link from "next/link";
+import { ModalContents } from "./modalContents";
 
 export default function ProjectModal({
   setIsModalOpen,
@@ -18,14 +19,19 @@ export default function ProjectModal({
       onClick={() => {
         setIsModalOpen(false);
       }}
-      className="fixed z-auto top-0 left-0 w-full h-full bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50 flex items-center justify-center backdrop-blur-md"
+      className="fixed top-0 left-0 w-dvw h-dvh bg-gray-100 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-50 flex items-center justify-center backdrop-blur-md"
     >
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl w-3/4">
-        <h2 className="text-3xl font-bold">{selectedProject?.title}</h2>
-        <p className="text-gray-500 dark:text-gray-400">
-          {selectedProject?.description}
-        </p>
-        <div className="py-4 flex flex-col sm:flex-row flex-grow justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className="bg-white dark:bg-gray-800 p-6 rounded-xl w-3/4 max-h-screen-90 flex flex-col"
+      >
+        <ModalContents
+          className="overflow-auto scrollbar-thin flex-grow"
+          project={selectedProject}
+        />
+        <div className="py-4 flex flex-col sm:flex-row flex-grow justify-center space-y-4 sm:space-y-0 sm:space-x-4 flex-shrink-0">
           {/* github button */}
           <Link
             className="flex-grow"
@@ -42,7 +48,7 @@ export default function ProjectModal({
 
                 {/* Icons */}
                 <div className="flex items-center space-x-4 p-4 bg-inherit justify-end">
-                  <IconGithub className="w-8 h-8"/>
+                  <IconGithub className="w-8 h-8" />
                 </div>
               </div>
             </div>
