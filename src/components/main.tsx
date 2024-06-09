@@ -38,6 +38,11 @@ const MockProjects: Project[] = [
     description:
       "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
     github: "https://github.com/0xjrr/HouseQuest",
+    download:
+      "https://github.com/0xjrr/HouseQuest/raw/main/android-apk/app-release.apk",
+    videos: [
+      "https://github.com/0xjrr/HouseQuest/raw/main/pitch-video/VID-20240126-WA0003.mp4",
+    ],
   },
   {
     title: "Plush Language Compiler",
