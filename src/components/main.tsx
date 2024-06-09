@@ -38,10 +38,23 @@ const MockProjects: Project[] = [
     description:
       "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
     github: "https://github.com/0xjrr/HouseQuest",
+    readme: `HouseQuest is an innovative mobile application developed for the Mobile Computing course at the University of Lisbon for the academic year 2023/2024. This app is designed to streamline household management and enhance communication within household members by leveraging real-time location sharing and announcement systems.
+
+    Features
+    Real-Time Location Sharing: HouseQuest allows users to share their real-time locations with other members of their household, fostering a sense of security and connectedness.
+    
+    User and Household Management: Users can create or join households, update their profiles, and manage household members, all within a secure and intuitive interface.
+    
+    Announcement System: A built-in platform for users to post and view announcements, making it easier to disseminate information within the household.
+    
+    Privacy-Focused: We have built HouseQuest with privacy in mind, ensuring user data is handled securely and location sharing is fully consensual.`,
     download:
       "https://github.com/0xjrr/HouseQuest/raw/main/android-apk/app-release.apk",
     videos: [
       "https://github.com/0xjrr/HouseQuest/raw/main/pitch-video/VID-20240126-WA0003.mp4",
+    ],
+    images: [
+      "https://raw.githubusercontent.com/0xjrr/HouseQuest/main/assets/images/splash.png",
     ],
   },
   {
@@ -55,6 +68,9 @@ const MockProjects: Project[] = [
     description:
       "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
     github: "https://github.com/0xjrr/iot-project-fcul",
+    images: [
+      "https://github.com/0xjrr/iot-project-fcul/raw/main/cloud-infra/frontend_web/src/app/logo/logo.webp",
+    ],
   },
   {
     title: "Django backend Web App and REST API",
