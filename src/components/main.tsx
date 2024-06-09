@@ -40,6 +40,12 @@ const MockProjects: Project[] = [
     github: "https://github.com/0xjrr/HouseQuest",
   },
   {
+    title: "Plush Language Compiler",
+    description:
+      "A compiler for the Plush language, a simple language with a C-like syntax. Built with ply (Lex-Yacc), Python, and C.",
+    github: "https://github.com/0xjrr/plush-compliler",
+  },
+  {
     title: "Sensor Data Collection And Analysis",
     description:
       "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
