@@ -17,15 +17,32 @@ export const ModalContents: React.FC<ModalContentsProps> = ({
   return (
     <div className={className}>
       <Card>
-        <CardHeader className="pb-0">
+        <CardHeader className="pb-3">
           <CardTitle className="text-2xl">
             {!!project ? project.title : ""}
           </CardTitle>
-          <CardContent className="pt-2 pb-6">
+          <CardContent className="pt-2 pb-2">
             <p className="text-sm leading-none text-gray-500">
               {!!project ? project.description : ""}
             </p>
           </CardContent>
+          {!!project && project.download && (
+            <div className="flex items-center justify-center space-x-1">
+              <a
+                href={project.download}
+                target="_blank"
+                className="cursor-pointer flex items-center justify-center p-2"
+              >
+                <div className="flex items-center hover:bg-gray-150 dark:hover:bg-gray-500 hover:shadow-lg bg-gray-200 dark:bg-gray-700 shadow-lg rounded-lg overflow-hidden max-w-lg">
+                  <div className="p-2">
+                    <p className="text-sm md:text-lg font-bold text-gray-500 dark:text-gray-300">
+                      Download
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          )}
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid w-full grid-cols-2 items-stretch gap-6">
@@ -47,6 +64,24 @@ export const ModalContents: React.FC<ModalContentsProps> = ({
             </div>
           </div>
           <div className="grid w-full grid-cols-2 items-stretch gap-6">
+            {!!project &&
+              !!project?.videos &&
+              project.videos.map((video, index) => (
+                <div
+                  key={index}
+                  className="mx-auto flex w-full items-center justify-center p-4 sm:p-8"
+                >
+                  <video
+                    className="aspect-video overflow-hidden rounded-lg object-contain object-center border"
+                    height="225"
+                    width="400"
+                    controls
+                  >
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              ))}
             <div className="mx-auto flex w-full items-center justify-center p-4 sm:p-8">
               <img
                 alt="Screenshot"
