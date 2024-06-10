@@ -23,7 +23,7 @@ export const ModalContents: React.FC<ModalContentsProps> = ({
             </p>
           </CardContent>
           {!!project && project.download && (
-            <div className="flex items-center justify-start space-x-1">
+            <div className="flex items-center justify-start space-x-2 px-4">
               <a
                 href={project.download}
                 target="_blank"
@@ -59,7 +59,7 @@ export const ModalContents: React.FC<ModalContentsProps> = ({
               <span>Docker</span>
             </div>
           </div>
-          <div className="grid w-full grid-cols-2 items-stretch gap-6">
+          <div className="grid w-full grid-cols-1 lg:grid-cols-2 items-stretch gap-6">
             {!!project &&
               !!project?.videos &&
               project.videos.map((video, index) => (
