@@ -117,7 +117,6 @@ export function MainPage() {
             <AvatarFallback>RR</AvatarFallback>
           </Avatar>
           <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
-
           <div className="text-lg text-gray-500 dark:text-gray-400 flex flex-wrap justify-center ">
             <span className="px-2 text-2xl ">Data Science </span>{" "}
             <IconAirplaneSharp className="h-7 w-7" />{" "}
@@ -186,237 +185,239 @@ export function MainPage() {
         </section>
         <section className="flex flex-col items-center justify-center space-y-6 py-12">
           <h2 className="text-2xl font-bold">Tech Stack</h2>
-          <DomainIconsBox name="Languages">
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Go
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <DomainIconsBox name="Languages">
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Go
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconGolang className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    TypeScript & JS
+                }
+              >
+                <IconGolang className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      TypeScript & JS
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconTypescript className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Python
+                }
+              >
+                <IconTypescript className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Python
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconPython className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Java
+                }
+              >
+                <IconPython className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Java
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconJava className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Kotlin
+                }
+              >
+                <IconJava className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Kotlin
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconBrandKotlin className="h-4 w-4" />
-            </Tooltip>
-          </DomainIconsBox>
-          <DomainIconsBox name="Frameworks">
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    ReactJS & React Native
+                }
+              >
+                <IconBrandKotlin className="h-5 w-5" />
+              </Tooltip>
+            </DomainIconsBox>
+            <DomainIconsBox name="Frameworks">
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      React Native
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconReact className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Next.js
+                }
+              >
+                <IconReact className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Next.js & ReactJS
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconNextjs className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Tailwind CSS
+                }
+              >
+                <IconNextjs className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Tailwind CSS
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconTailwind className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Django
+                }
+              >
+                <IconTailwind className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Django
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconDjango className="h-4 w-4" />
-            </Tooltip>
-          </DomainIconsBox>
-          <DomainIconsBox name="Cloud Infra">
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Microsoft Azure
+                }
+              >
+                <IconDjango className="h-5 w-5" />
+              </Tooltip>
+            </DomainIconsBox>
+            <DomainIconsBox name="Cloud Infra">
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Microsoft Azure
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconMicrosoftazure className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Google Cloud
+                }
+              >
+                <IconMicrosoftazure className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Google Cloud
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconGooglecloud className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Firebase
+                }
+              >
+                <IconGooglecloud className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Firebase
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconLogoFirebase className="h-4 w-4" />
-            </Tooltip>
-          </DomainIconsBox>
-          <DomainIconsBox name="Containers">
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Docker
+                }
+              >
+                <IconLogoFirebase className="h-5 w-5" />
+              </Tooltip>
+            </DomainIconsBox>
+            <DomainIconsBox name="Containers">
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Docker
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconLogoDocker className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Kubernetes
+                }
+              >
+                <IconLogoDocker className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Kubernetes
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconKubernetes className="h-4 w-4" />
-            </Tooltip>
-          </DomainIconsBox>
-          <DomainIconsBox name="Machine Learning">
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    TensorFlow
+                }
+              >
+                <IconKubernetes className="h-5 w-5" />
+              </Tooltip>
+            </DomainIconsBox>
+            <DomainIconsBox name="Machine Learning">
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      TensorFlow
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconTensorflow className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    PyTorch
+                }
+              >
+                <IconTensorflow className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      PyTorch
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconPytorch className="h-4 w-4" />
-            </Tooltip>
-            <Tooltip
-              showArrow={true}
-              color={"default"}
-              content={
-                <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                  <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                    Scikit-learn
+                }
+              >
+                <IconPytorch className="h-5 w-5" />
+              </Tooltip>
+              <Tooltip
+                showArrow={true}
+                color={"default"}
+                content={
+                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
+                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
+                      Scikit-learn
+                    </div>
                   </div>
-                </div>
-              }
-            >
-              <IconScikitlearn className="h-4 w-4" />
-            </Tooltip>
-          </DomainIconsBox>
+                }
+              >
+                <IconScikitlearn className="h-5 w-5" />
+              </Tooltip>
+            </DomainIconsBox>
+          </div>
         </section>
 
         <section
@@ -474,13 +475,13 @@ export function MainPage() {
           </p>
           <div className="grid grid-cols-3 gap-6">
             <Link href="https://github.com/0xjrr/">
-              <IconGithub className="h-4 w-4" />
+              <IconGithub className="h-7 w-7" />
             </Link>
             <Link href="https://www.linkedin.com/in/jr-ribeiro/">
-              <IconLinkedin className="h-4 w-4" />
+              <IconLinkedin className="h-7 w-7" />
             </Link>
             <Link href="mailto:">
-              <IconMail className="h-4 w-4" />
+              <IconMail className="h-7 w-7" />
             </Link>
           </div>
         </section>
