@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.9",
+    "@nextui-org/react": "^2.4.1",
     "@radix-ui/react-avatar": "^1.0.4",
     "@vercel/speed-insights": "^1.0.9",
     "class-variance-authority": "^0.7.0",
