@@ -1,23 +1,27 @@
 // ThemeToggle.js
 "use client"
-import { MoonIcon, SunIcon } from 'lucide-react';
 import React from 'react';
 
 const ThemeToggle = () => {
   const [darkMode, setDarkMode] = React.useState(true);
 
   const toggleTheme = () => {
-    if (darkMode) {
-      document.documentElement.classList.remove('dark');
-    } else {
+    const next = !darkMode;
+    if (next) {
       document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
-    setDarkMode(!darkMode);
+    setDarkMode(next);
   };
 
   return (
-    <button onClick={toggleTheme}>
-      {darkMode ? <IconMoonStars/> : <IconSun />}
+    <button
+      onClick={toggleTheme}
+      aria-label="Toggle theme"
+      className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition text-gray-700 dark:text-gray-200"
+    >
+      {darkMode ? <IconMoonStars className="h-4 w-4" /> : <IconSun className="h-4 w-4" />}
     </button>
   );
 };
