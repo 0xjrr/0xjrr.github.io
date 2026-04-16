@@ -1,5 +1,6 @@
 import { CardTitle, CardContent, CardHeader, Card } from "@/components/ui/card";
 import Project from "@/interfaces/project";
+import Image from "next/image";
 
 type ModalContentsProps = {
   project: Project | null;
@@ -49,10 +50,12 @@ export const ModalContents: React.FC<ModalContentsProps> = ({
               ))}
               {project?.images?.map((image, index) => (
                 <div key={index} className="flex w-full items-center justify-center">
-                  <img
+                  <Image
                     alt="Screenshot"
                     className="w-full rounded-lg border object-contain"
                     src={image}
+                    width={800}
+                    height={600}
                   />
                 </div>
               ))}

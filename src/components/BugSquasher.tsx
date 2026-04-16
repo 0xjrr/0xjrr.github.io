@@ -400,7 +400,7 @@ export default function BugSquasher({ onClose }: { onClose: () => void }) {
           />
           {dead && (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 rounded-xl">
-              <p className="text-red-400 text-2xl font-bold font-mono mb-1">// SEGFAULT</p>
+              <p className="text-red-400 text-2xl font-bold font-mono mb-1">{"// SEGFAULT"}</p>
               <p className="text-gray-300 text-sm mb-1 font-mono">Fatal: too many unresolved bugs</p>
               <p className="text-indigo-300 font-mono mb-5">Score: {score}</p>
               <button
