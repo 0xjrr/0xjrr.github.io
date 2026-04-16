@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 import DomainIconsBox from "./DomainIconsBox";
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar";
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
-import { Tooltip, Button } from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/react";
 import {
   IconAirplaneSharp,
   IconBrandKotlin,
@@ -31,23 +31,28 @@ import {
 } from "./icons/Icons";
 import ProjectModal from "./ui/modal";
 import Project from "@/interfaces/project";
+import SnakeGame from "./SnakeGame";
+import BugSquasher from "./BugSquasher";
 
 const MockProjects: Project[] = [
   {
-    title: "House Quest Mobile App",
+    title: "HouseQuest — Household Mobile App",
     description:
-      "Multi-user Android and iOS app for houseshold members to manage tasks and chores. Built with React Native, Firebase, and TypeScript.",
+      "Cross-platform Android & iOS app for household members to coordinate tasks, share real-time locations, and stay connected. Built with React Native, Firebase, and TypeScript.",
     github: "https://github.com/0xjrr/HouseQuest",
-    readme: `HouseQuest is an innovative mobile application developed for the Mobile Computing course at the University of Lisbon for the academic year 2023/2024. This app is designed to streamline household management and enhance communication within household members by leveraging real-time location sharing and announcement systems.
+    readme: `HouseQuest is a mobile application developed for the Mobile Computing course at the University of Lisbon (2023/2024). It streamlines household management and enhances communication among household members.
 
-    Features
-    Real-Time Location Sharing: HouseQuest allows users to share their real-time locations with other members of their household, fostering a sense of security and connectedness.
-    
-    User and Household Management: Users can create or join households, update their profiles, and manage household members, all within a secure and intuitive interface.
-    
-    Announcement System: A built-in platform for users to post and view announcements, making it easier to disseminate information within the household.
-    
-    Privacy-Focused: We have built HouseQuest with privacy in mind, ensuring user data is handled securely and location sharing is fully consensual.`,
+Key Features
+
+• Real-Time Location Sharing — members can share their live location with the household, fostering safety and connectedness. Location sharing is fully consensual and privacy-focused.
+
+• User & Household Management — create or join households, update profiles, and manage members through a secure, intuitive interface.
+
+• Announcement System — a built-in board for posting and viewing household announcements, making information sharing effortless.
+
+• Cross-Platform — one codebase for both Android and iOS, built with React Native and Expo.
+
+Tech Stack: React Native · TypeScript · Firebase (Auth, Firestore, Storage) · Expo`,
     download:
       "https://github.com/0xjrr/HouseQuest/raw/main/android-apk/app-release.apk",
     videos: [
@@ -58,36 +63,117 @@ const MockProjects: Project[] = [
     ],
   },
   {
-    title: "Plush Language Compiler",
+    title: "PLush Language Compiler",
     description:
-      "A compiler for the Plush language, a simple language with a C-like syntax. Built with ply (Lex-Yacc), Python, and C.",
+      "A full compiler pipeline for PLush — a statically-typed C-like language. Covers lexing, parsing, semantic analysis, and LLVM IR code generation.",
     github: "https://github.com/0xjrr/plush-compliler",
+    readme: `PLush is a statically-typed, high-level programming language designed to teach the fundamentals of programming language design and compiler construction.
+
+The compiler was built as a final-year project for the Compilers course at FCUL (2024).
+
+Pipeline
+
+• Lexer — tokenises PLush source files using PLY (Python Lex-Yacc)
+• Parser — LALR(1) grammar producing a typed Abstract Syntax Tree
+• Semantic Checker — type and scope analysis across functions and globals
+• LLVM IR Generator — emits LLVM IR which is compiled to native code via Clang
+
+Language Features
+
+• Data types: int, float, double, string, bool, and nested arrays ([int], [[int]], …)
+• Mutable (var) and immutable (val) variables
+• if/else, while, do-while control flow
+• Functions with typed parameters and return values
+• Arithmetic, bitwise, logical, and comparison operators
+• Power operator (^) via C's pow FFI
+• Increment/decrement (++, --, +=, -=)
+• break and continue in loops
+• Import system for modular code reuse across .pl files
+• Built-in print_int, print_double, print_string, and printf
+
+Tech Stack: Python · PLY (Lex-Yacc) · LLVM IR · Clang · Bash`,
   },
   {
-    title: "Sensor Data Collection And Analysis",
+    title: "IoT Sensor Data Collection & Analysis",
     description:
-      "Project to collect and analyze sensor data from IoT devices. Built with Docker, MQTT, Golang, JavaScript, Python, gRPC, and MySQL.",
+      "End-to-end IoT platform for collecting, streaming, and analysing sensor data from connected devices. Built with Docker, MQTT, Golang, Python, gRPC, and MySQL.",
     github: "https://github.com/0xjrr/iot-project-fcul",
+    readme: `A full-stack IoT data platform developed for the Internet of Things course at FCUL.
+
+Architecture
+
+• IoT Devices — sensors publish readings over MQTT to a central broker
+• MQTT Broker — decouples producers from consumers; handles fan-out to multiple subscribers
+• Data Ingestion Service (Go) — subscribes to MQTT topics, validates payloads, and persists readings to MySQL via gRPC calls
+• gRPC Backend (Go) — exposes a typed RPC interface for data storage and retrieval
+• Analytics & Processing (Python) — scheduled scripts aggregate data, detect anomalies, and generate reports
+• Web Dashboard (JavaScript) — real-time visualisation of sensor readings with charting and alerting
+• Containerised — every service is packaged as a Docker container and orchestrated with Docker Compose
+
+Tech Stack: Docker · Docker Compose · MQTT (Mosquitto) · Golang · gRPC · Python · JavaScript · MySQL`,
     images: [
       "https://github.com/0xjrr/iot-project-fcul/raw/main/cloud-infra/frontend_web/src/app/logo/logo.webp",
     ],
   },
   {
-    title: "Django backend Web App and REST API",
+    title: "Little Lemon — Django REST API & Web App",
     description:
-      "Backend for a Web App and REST API. Built with Django, Python and SQLite.",
+      "Backend REST API and server-rendered web app for a Mediterranean restaurant. Built with Django, Django REST Framework, Djoser auth, and MySQL.",
     github: "https://github.com/0xjrr/meta-backend-django-capstone",
+    readme: `Capstone project for the Meta Back-End Developer Certificate (2023).
+
+The project implements a production-ready backend for the fictional Little Lemon restaurant, featuring both a classic server-rendered web interface and a JSON REST API.
+
+Features
+
+• Menu API — full CRUD for menu items (title, price, inventory) via /restaurant/api/menu/
+• Booking API — reservation management with authentication enforcement; only authenticated users can list, create, update, or delete bookings
+• Token Authentication — powered by Djoser + DRF token auth; endpoints at /auth/ for registration and token retrieval
+• Admin Panel — Django admin for managing Menu and Booking models
+• Server-Rendered Views — HTML pages served with Django templates (index, booking form)
+• Unit Tests — model and view tests with APIClient verifying status codes and serializer output
+
+Tech Stack: Django 4.2 · Django REST Framework · Djoser · MySQL · Python · HTML/CSS`,
   },
   {
-    title: "React Web App",
-    description: " Web app built with React, and ChackraUI",
+    title: "Little Lemon — React Frontend",
+    description:
+      "Multi-page restaurant website with a reservation system, built with ReactJS, ChakraUI, Formik, and Yup validation.",
     github: "https://github.com/0xjrr/capstone-frontend-littlelemon",
+    readme: `Capstone project for the Meta Front-End Developer Certificate (2023).
+
+A fully responsive, multi-page website for the Little Lemon Mediterranean restaurant, designed from scratch in Figma and implemented in React.
+
+Pages
+
+• Homepage — hero section, featured specials, and about preview
+• Menu — full menu grid with dish cards (name, price, description, image)
+• About — restaurant story and team photos
+• Reserve — reservation form with live slot availability
+
+Reservation Form Highlights
+
+• Built with Formik + Yup for field-level validation (name, email, date, time, guest count)
+• Date input triggers a mock API call (seeded random) to populate available time slots
+• Submit simulates a real async API call with a 50 % success/failure rate
+• On success the button disables and shows a confirmation message; on failure it prompts a retry
+
+Tech Stack: ReactJS · ChakraUI · React Router · Formik · Yup · JavaScript`,
   },
+];
+
+const KONAMI = [
+  "ArrowUp","ArrowUp","ArrowDown","ArrowDown",
+  "ArrowLeft","ArrowRight","ArrowLeft","ArrowRight",
+  "b","a",
 ];
 
 export function MainPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isBugGameOpen, setIsBugGameOpen] = useState(false);
+  const [isGameOpen, setIsGameOpen] = useState(false);
+  const konamiIndex = React.useRef(0);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -95,397 +181,247 @@ export function MainPage() {
     } else {
       document.body.classList.remove("overflow-hidden");
     }
-
     return () => {
       document.body.classList.remove("overflow-hidden");
     };
   }, [isModalOpen]);
 
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === KONAMI[konamiIndex.current]) {
+      konamiIndex.current += 1;
+      if (konamiIndex.current === KONAMI.length) {
+        konamiIndex.current = 0;
+        setIsBugGameOpen(true);
+      }
+    } else {
+      konamiIndex.current = e.key === KONAMI[0] ? 1 : 0;
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleKeyDown]);
+
   return (
     <>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
-        <div className="fixed top-0 right-0 m-4 h-7 w-7">
+      {isBugGameOpen && <BugSquasher onClose={() => setIsBugGameOpen(false)} />}
+
+      <div className="flex flex-col items-center justify-center w-full bg-gray-100 dark:bg-gray-900 min-h-screen">
+        {/* Theme toggle */}
+        <div className="fixed top-0 right-0 m-4 z-40">
           <ThemeToggle />
         </div>
-        <header className="flex flex-col items-center justify-center space-y-6 py-12">
-          <Avatar className="h-32 w-32">
-            <AvatarImage
-              className="filter grayscale"
-              alt="Profile picture"
-              src="https://media.licdn.com/dms/image/D5603AQHnlhMY3qqTRw/profile-displayphoto-shrink_200_200/0/1684162556234?e=1712188800&v=beta&t=Yss1a58_lLlHLwVRYob5ZeGlJgJlAm4I9Asc-bTDxUI"
-            />
-            <AvatarFallback>RR</AvatarFallback>
-          </Avatar>
-          <h1 className="text-4xl font-bold">Ricardo Ribeiro</h1>
-          <div className="text-lg text-gray-500 dark:text-gray-400 flex flex-wrap justify-center ">
-           
-            <IconAirplaneSharp className="h-7 w-7" />{" "}
-            <span className="px-2 text-2xl ">Software Engineering</span>
-          </div>
-        </header>
-        <nav className="flex flex-col sm:flex-row sm:justify-center space-y-2 sm:space-y-0 sm:space-x-4">
-          <Link className="text-lg font-medium hover:underline" href="#about">
-            About
-          </Link>
-          <Link
-            className="text-lg font-medium hover:underline"
-            href="#projects"
-          >
-            Projects
-          </Link>
-          <Link className="text-lg font-medium hover:underline" href="#contact">
-            Contact
-          </Link>
-        </nav>
-        <section
-          id="about"
-          className="flex flex-col items-center justify-center space-y-6 py-12"
-        >
-          <h2 className="text-3xl font-bold">About</h2>
-          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-            Welcome to my corner on the web! I&apos;m Ricardo, currently in
-            Lisbon, Portugal. At the moment I&apos;m working as a Data
-            Scientist, while also pursuing advanced studies in Computer Science.
-            My passion lies in learning, developing software, solving complex
-            data problems, and building cool projects. My expertise spans
-            machine learning, software development, and data engineering, with
-            proficiency in Python, JavaScript, Java, and Golang. I&apos;m
-            constantly on the lookout for new technologies and languages to
-            master.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-            I am currently enhancing my technical skillset with a Master&apos;s
-            degree in Computer Science at Faculdade de Ciências da Universidade
-            de Lisboa, focusing on both the theoretical and practical aspects of
-            software engineering. This, coupled with my background in
-            environmental engineering and data science, provides me with a
-            unique perspective on how technology can be used to address complex
-            challenges.
-          </p>
-          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-            As I navigate this exciting transition towards software engineering,
-            I am eager to apply my skills in new contexts, tackle challenges
-            head-on, and contribute to meaningful projects that push
-            technological boundaries. I invite you to connect with me on{" "}
-            <a
-              href="https://www.linkedin.com/in/jr-ribeiro/"
-              className="text-blue-500 hover:underline"
-            >
-              Linkedin
-            </a>{" "}
-            and explore my coding endeavors on{" "}
-            <a
-              href="https://github.com/0xjrr/"
-              className="text-blue-500 hover:underline"
-            >
-              GitHub
-            </a>
-            .
-          </p>
-        </section>
-        <section className="flex flex-col items-center justify-center space-y-6 py-12">
-          <h2 className="text-2xl font-bold">Tech Stack</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <DomainIconsBox name="Languages">
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Go
-                    </div>
-                  </div>
-                }
-              >
-                <IconGolang className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      TypeScript & JS
-                    </div>
-                  </div>
-                }
-              >
-                <IconTypescript className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Python
-                    </div>
-                  </div>
-                }
-              >
-                <IconPython className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Java
-                    </div>
-                  </div>
-                }
-              >
-                <IconJava className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Kotlin
-                    </div>
-                  </div>
-                }
-              >
-                <IconBrandKotlin className="h-5 w-5" />
-              </Tooltip>
-            </DomainIconsBox>
-            <DomainIconsBox name="Frameworks">
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      React Native
-                    </div>
-                  </div>
-                }
-              >
-                <IconReact className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Next.js & ReactJS
-                    </div>
-                  </div>
-                }
-              >
-                <IconNextjs className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Tailwind CSS
-                    </div>
-                  </div>
-                }
-              >
-                <IconTailwind className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Django
-                    </div>
-                  </div>
-                }
-              >
-                <IconDjango className="h-5 w-5" />
-              </Tooltip>
-            </DomainIconsBox>
-            <DomainIconsBox name="Cloud Infra">
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Microsoft Azure
-                    </div>
-                  </div>
-                }
-              >
-                <IconMicrosoftazure className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Google Cloud
-                    </div>
-                  </div>
-                }
-              >
-                <IconGooglecloud className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Firebase
-                    </div>
-                  </div>
-                }
-              >
-                <IconLogoFirebase className="h-5 w-5" />
-              </Tooltip>
-            </DomainIconsBox>
-            <DomainIconsBox name="Containers">
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Docker
-                    </div>
-                  </div>
-                }
-              >
-                <IconLogoDocker className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Kubernetes
-                    </div>
-                  </div>
-                }
-              >
-                <IconKubernetes className="h-5 w-5" />
-              </Tooltip>
-            </DomainIconsBox>
-            <DomainIconsBox name="Machine Learning">
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      TensorFlow
-                    </div>
-                  </div>
-                }
-              >
-                <IconTensorflow className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      PyTorch
-                    </div>
-                  </div>
-                }
-              >
-                <IconPytorch className="h-5 w-5" />
-              </Tooltip>
-              <Tooltip
-                showArrow={true}
-                color={"default"}
-                content={
-                  <div className="px-1 py-1  rounded-md  bg-opacity-90 bg-slate-300 dark:bg-slate-800">
-                    <div className="text-small font-bold text-gray-900 dark:text-gray-200">
-                      Scikit-learn
-                    </div>
-                  </div>
-                }
-              >
-                <IconScikitlearn className="h-5 w-5" />
-              </Tooltip>
-            </DomainIconsBox>
-          </div>
-        </section>
 
-        <section
-          id="projects"
-          className="flex flex-col items-center justify-center space-y-6 py-12"
-        >
-          <h2 className="text-3xl font-bold">Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-6">
-            {MockProjects.map((project: Project) => (
-              <Card
-                className="mx-4 cursor-pointer hover:bg-gray-150 dark:hover:bg-gray-700 hover:shadow-lg transition duration-150 ease-in-out max-w-2xl"
-                key={project.title}
-                onClick={() => {
-                  console.log("Clicked on project: ", project.title);
-                  if (!isModalOpen) {
-                    setSelectedProject(project);
-                    setIsModalOpen(true);
-                  }
-                }}
+        {/* Hero */}
+        <header className="flex flex-col items-center justify-center space-y-5 pt-20 pb-10 w-full">
+          <div className="ring-4 ring-gray-300 dark:ring-gray-600 rounded-full p-1 shadow-lg">
+            <Avatar className="h-32 w-32">
+              <AvatarImage
+                className="filter grayscale hover:filter-none transition duration-500"
+                alt="Profile picture"
+                src="https://avatars.githubusercontent.com/u/86163146?v=4"
+              />
+              <AvatarFallback>RR</AvatarFallback>
+            </Avatar>
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight">Ricardo Ribeiro</h1>
+          <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
+            <IconAirplaneSharp className="h-5 w-5" />
+            <span className="text-xl tracking-wide">Software Engineering</span>
+          </div>
+          <nav className="flex flex-wrap justify-center gap-3 pt-2">
+            {["#about", "#projects", "#contact"].map((href) => (
+              <Link
+                key={href}
+                href={href}
+                className="px-5 py-1.5 rounded-full text-sm font-medium border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
               >
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    {project.description}
-                  </p>
-                </CardContent>
-              </Card>
+                {href.replace("#", "").replace(/^\w/, (c) => c.toUpperCase())}
+              </Link>
             ))}
-          </div>
-        </section>
-        <section
-          id="contact"
-          className="flex flex-col items-center justify-center space-y-6 py-12"
-        >
-          <h2 className="text-3xl font-bold">Contact</h2>
-          <p className="text-gray-500 dark:text-gray-400 text-justify w-4/5 lg:w-2/4 md:w-3/4 ">
-            If you&apos;d like to get in touch, feel free to reach out to me or
-            connect with me on{" "}
-            <a
-              href="https://www.linkedin.com/in/jr-ribeiro/"
-              className="text-current hover:underline"
+            <button
+              onClick={() => setIsGameOpen(true)}
+              className="px-5 py-1.5 rounded-full text-sm font-medium border border-green-400 dark:border-green-600 text-green-600 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/30 transition"
             >
-              Linkedin
-            </a>{" "}
-            and explore my coding endeavors on{" "}
-            <a
-              href="https://github.com/0xjrr/"
-              className="text-current hover:underline"
-            >
-              GitHub
-            </a>
-            .
-          </p>
-          <div className="grid grid-cols-3 gap-6">
-            <Link href="https://github.com/0xjrr/">
-              <IconGithub className="h-7 w-7" />
-            </Link>
-            <Link href="https://www.linkedin.com/in/jr-ribeiro/">
-              <IconLinkedin className="h-7 w-7" />
-            </Link>
-            <Link href="mailto:">
-              <IconMail className="h-7 w-7" />
-            </Link>
-          </div>
-        </section>
+              🐍 Play
+            </button>
+          </nav>
+        </header>
+
+        <div className="w-full max-w-4xl px-4 divide-y divide-gray-200 dark:divide-gray-700">
+          {/* About */}
+          <section
+            id="about"
+            className="flex flex-col items-center justify-center space-y-5 py-14"
+          >
+            <h2 className="text-3xl font-bold">About</h2>
+            <div className="space-y-4 text-gray-500 dark:text-gray-400 text-justify max-w-2xl w-full">
+              <p>
+                Welcome to my corner on the web! I&apos;m Ricardo, currently in
+                Lisbon, Portugal. At the moment I&apos;m working as a Data
+                Scientist, while also pursuing advanced studies in Computer Science.
+                My passion lies in learning, developing software, solving complex
+                data problems, and building cool projects. My expertise spans
+                machine learning, software development, and data engineering, with
+                proficiency in Python, JavaScript, Java, and Golang. I&apos;m
+                constantly on the lookout for new technologies and languages to
+                master.
+              </p>
+              <p>
+                I am currently enhancing my technical skillset with a Master&apos;s
+                degree in Computer Science at Faculdade de Ciências da Universidade
+                de Lisboa, focusing on both the theoretical and practical aspects of
+                software engineering. This, coupled with my background in
+                environmental engineering and data science, provides me with a
+                unique perspective on how technology can be used to address complex
+                challenges.
+              </p>
+              <p>
+                As I navigate this exciting transition towards software engineering,
+                I am eager to apply my skills in new contexts, tackle challenges
+                head-on, and contribute to meaningful projects that push
+                technological boundaries. I invite you to connect with me on{" "}
+                <a
+                  href="https://www.linkedin.com/in/jr-ribeiro/"
+                  className="text-blue-500 hover:underline"
+                >
+                  LinkedIn
+                </a>{" "}
+                and explore my coding endeavors on{" "}
+                <a
+                  href="https://github.com/0xjrr/"
+                  className="text-blue-500 hover:underline"
+                >
+                  GitHub
+                </a>
+                .
+              </p>
+            </div>
+          </section>
+          {/* Tech Stack */}
+          <section className="flex flex-col items-center justify-center space-y-6 py-14">
+            <h2 className="text-2xl font-bold">Tech Stack</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
+              <DomainIconsBox name="Languages">
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Go</span>}><IconGolang className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">TypeScript & JS</span>}><IconTypescript className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Python</span>}><IconPython className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Java</span>}><IconJava className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Kotlin</span>}><IconBrandKotlin className="h-6 w-6" /></Tooltip>
+              </DomainIconsBox>
+              <DomainIconsBox name="Frameworks">
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">React Native</span>}><IconReact className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Next.js & ReactJS</span>}><IconNextjs className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Tailwind CSS</span>}><IconTailwind className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Django</span>}><IconDjango className="h-6 w-6" /></Tooltip>
+              </DomainIconsBox>
+              <DomainIconsBox name="Cloud Infra">
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Microsoft Azure</span>}><IconMicrosoftazure className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Google Cloud</span>}><IconGooglecloud className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Firebase</span>}><IconLogoFirebase className="h-6 w-6" /></Tooltip>
+              </DomainIconsBox>
+              <DomainIconsBox name="Containers">
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Docker</span>}><IconLogoDocker className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Kubernetes</span>}><IconKubernetes className="h-6 w-6" /></Tooltip>
+              </DomainIconsBox>
+              <DomainIconsBox name="Machine Learning">
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">TensorFlow</span>}><IconTensorflow className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">PyTorch</span>}><IconPytorch className="h-6 w-6" /></Tooltip>
+                <Tooltip showArrow color="default" content={<span className="text-sm font-semibold">Scikit-learn</span>}><IconScikitlearn className="h-6 w-6" /></Tooltip>
+              </DomainIconsBox>
+            </div>
+          </section>
+
+          {/* Projects */}
+          <section
+            id="projects"
+            className="flex flex-col items-center justify-center space-y-6 py-14"
+          >
+            <h2 className="text-3xl font-bold">Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+              {MockProjects.map((project: Project) => (
+                <Card
+                  className="cursor-pointer border border-gray-200 dark:border-gray-700 hover:border-gray-400 dark:hover:border-gray-500 hover:shadow-md transition-all duration-200"
+                  key={project.title}
+                  onClick={() => {
+                    if (!isModalOpen) {
+                      setSelectedProject(project);
+                      setIsModalOpen(true);
+                    }
+                  }}
+                >
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg leading-snug">{project.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Contact */}
+          <section
+            id="contact"
+            className="flex flex-col items-center justify-center space-y-6 py-14"
+          >
+            <h2 className="text-3xl font-bold">Contact</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-center max-w-xl">
+              If you&apos;d like to get in touch, feel free to connect on{" "}
+              <a
+                href="https://www.linkedin.com/in/jr-ribeiro/"
+                className="text-blue-500 hover:underline"
+              >
+                LinkedIn
+              </a>{" "}
+              or explore my work on{" "}
+              <a
+                href="https://github.com/0xjrr/"
+                className="text-blue-500 hover:underline"
+              >
+                GitHub
+              </a>
+              .
+            </p>
+            <div className="flex items-center gap-8 pt-2">
+              <Link
+                href="https://github.com/0xjrr/"
+                target="_blank"
+                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
+                aria-label="GitHub"
+              >
+                <IconGithub className="h-8 w-8" />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/jr-ribeiro/"
+                target="_blank"
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition"
+                aria-label="LinkedIn"
+              >
+                <IconLinkedin className="h-8 w-8" />
+              </Link>
+              <Link
+                href="mailto:jr@0xjrr.com"
+                className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
+                aria-label="Email"
+              >
+                <IconMail className="h-8 w-8" />
+              </Link>
+            </div>
+          </section>
+        </div>
+
+        {/* Footer */}
+        <footer className="w-full py-6 text-center text-xs text-gray-400 dark:text-gray-600 border-t border-gray-200 dark:border-gray-800 mt-8">
+          <p>© {new Date().getFullYear()} Ricardo Ribeiro · Built with Next.js &amp; Tailwind</p>
+          <p className="mt-1 select-none text-[10px] opacity-30 tracking-widest">↑↑↓↓←→←→BA</p>
+        </footer>
       </div>
+
       {isModalOpen && (
         <ProjectModal
           setIsModalOpen={setIsModalOpen}
@@ -493,6 +429,7 @@ export function MainPage() {
           setSelectedProject={setSelectedProject}
         />
       )}
+      {isGameOpen && <SnakeGame onClose={() => setIsGameOpen(false)} />}
     </>
   );
 }
